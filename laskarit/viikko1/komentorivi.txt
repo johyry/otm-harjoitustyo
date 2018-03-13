@@ -1,0 +1,30 @@
+kurssit/
+└── otm2018
+    ├── otm-harjoitustyo
+        │   ├── laskarit
+            │   │   └── viikko1
+                │   │       ├── gitlog.txt
+                    │   │       └── komentorivi.txt
+                        │   └── README.md
+                            └── viikko1
+                                    └── Unicafe
+                                                ├── pom.xml
+                                                            └── src
+                                                                            ├── main
+                                                                                            │   ├── java
+                                                                                                            │   │   └── com
+                                                                                                                            │   │       └── mycompany
+                                                                                                                                            │   │           └── unicafe
+                                                                                                                                                            │   │               ├── Kassapaate.java
+                                                                                                                                                                            │   │               ├── Maksukortti.java
+                                                                                                                                                                                            │   │               └── Paaohjelma.java
+                                                                                                                                                                                                            │   └── resources
+                                                                                                                                                                                                                            └── test
+                                                                                                                                                                                                                                                └── java
+                                                                                                                                                                                                                                                                        └── com
+                                                                                                                                                                                                                                                                                                    └── mycompany
+                                                                                                                                                                                                                                                                                                                                    └── unicafe
+                                                                                                                                                                                                                                                                                                                                                                        └── MaksukorttiTest.java
+                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                        18 directories, 8 files
+                                                                                                                                                                                                                                                                                                                                                                        
