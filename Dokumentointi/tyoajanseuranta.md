@@ -21,6 +21,11 @@
     <td>2</td>
     <td>Vaatimusmäärittelyn ja työajanseurannan kirjoittelu</td>
   </tr>
+  <tr>
+    <td>29.3.</td>
+    <td>3</td>
+    <td>Viikon 3 laskarit</td>
+  </tr>
 </table>
 
 </body>
