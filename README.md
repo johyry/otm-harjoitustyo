@@ -2,5 +2,6 @@
 
 Tänne tulee myöhemmin **tärkeää** tekstiä *erittäin* tärkeistä asioista.
 
-[Requirement declaration](Dokumentaatio/requirementdeclaration.md)
-[Hours worked](Dokumentaatio/tyoajanseuranta.md)
+[Requirement declaration](Documentation/requirementdeclaration.md)
+
+[Hours worked](Documentation/hours_worked.md)
