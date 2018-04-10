@@ -9,12 +9,12 @@
   <tr>
     <td>13.3.</td>
     <td>3</td>
-    <td>Git-tutoriaalit ja ekan viikon laskarit</td>
+    <td>Git-tutoriaalit</td>
   </tr>
   <tr>
     <td>20.3.</td>
     <td>3</td>
-    <td>Testaamisen harjottelu ja viikon 2 laskarit</td>
+    <td>Testaamisen harjottelu</td>
   </tr>
   <tr>
     <td>20.3.</td>
@@ -24,7 +24,17 @@
   <tr>
     <td>29.3.</td>
     <td>3</td>
-    <td>Viikon 3 laskarit</td>
+    <td>Harjoitustyön tekoa: DAO, pistelappu</td>
+  </tr>
+  <tr>
+    <td>4.4.</td>
+    <td>3</td>
+    <td>Harjoitustyön tekoa: käyttöliittymää, testejä</td>
+  </tr>
+  <tr>
+    <td>10.4.</td>
+    <td>1</td>
+    <td>Harjoitustyön tekoa: testejä</td>
   </tr>
 </table>
 

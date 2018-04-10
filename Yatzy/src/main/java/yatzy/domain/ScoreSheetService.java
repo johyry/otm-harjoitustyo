@@ -8,7 +8,7 @@ import java.util.Map;
 public class ScoreSheetService {
 
     private User user;
-    private Scoresheet scoresheet;
+    public Scoresheet scoresheet;
 
     
     public ScoreSheetService(User user) {

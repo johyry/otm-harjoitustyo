@@ -6,6 +6,14 @@ import java.util.Random;
 
 public class Dice {
     private int value;
+    
+    public Dice(int value) {
+        this.value = value;
+    }
+    
+    public Dice() {
+        
+    }
 
     public int getValue() {
         return value;
