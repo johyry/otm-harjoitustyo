@@ -11,10 +11,9 @@ public class ScoreSheetService {
     public Scoresheet scoresheet;
 
     
-    public ScoreSheetService(User user) {
+    public ScoreSheetService(User user, Scoresheet scoresheet) {
         this.user = user;
-        
-        this.scoresheet = new Scoresheet(user);
+        this.scoresheet = scoresheet;
 
     }
 

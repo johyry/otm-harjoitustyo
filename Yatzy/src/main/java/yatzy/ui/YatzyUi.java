@@ -17,20 +17,13 @@ public class YatzyUi {
 
     private Scanner scanner;
 
-    private Database database;
-
-    private FileUserDao userDao;
-
     private YatzyService yatzyService;
 
     public YatzyUi(Scanner scanner) throws Exception {
         this.scanner = scanner;
 
-        database = new Database("jdbc:sqlite:users.db");
-        database.init();
-
-        userDao = new FileUserDao(database);
-        yatzyService = new YatzyService(userDao);
+        
+        yatzyService = new YatzyService();
     }
 
     public void mainMenu() throws Exception {

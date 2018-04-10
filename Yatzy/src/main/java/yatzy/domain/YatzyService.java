@@ -2,6 +2,7 @@ package yatzy.domain;
 
 import java.util.ArrayList;
 import java.util.List;
+import yatzy.dao.Database;
 import yatzy.dao.FileUserDao;
 import yatzy.dao.UserDao;
 
@@ -10,9 +11,15 @@ public class YatzyService {
     private UserDao userDao;
     private User loggedIn;
     private ScoreSheetService scoresheetService;
+    private Scoresheet scoresheet;
+    private Database database;
 
-    public YatzyService(UserDao userDao) {
-        this.userDao = userDao;
+    public YatzyService() throws Exception {
+        
+        database = new Database("jdbc:sqlite:users.db");
+        database.init();
+
+        userDao = new FileUserDao(database);
     }
 
     public boolean login(String username) throws Exception {
@@ -22,7 +29,8 @@ public class YatzyService {
         }
 
         loggedIn = user;
-        scoresheetService = new ScoreSheetService(user);
+        scoresheet = new Scoresheet(user);
+        scoresheetService = new ScoreSheetService(user, scoresheet);
 
         return true;
     }
