@@ -1,0 +1,14 @@
+title Mälaitanbensaasataa
+
+Metodi->+Machine:new Machine
+Machine->FuelTank:new Fueltank
+FuelTank->FuelTank:fill(40)
+Machine->-Engine:new Engine(Fueltank)
+
+Machine->+Machine:Machine(drive)
+Machine->+Engine:Engine(start)
+Engine->-FuelTank:consume(5)
+Machine->+Engine:Engine(isRunning())
+Engine-->-Machine:true;
+Machine->+Engine:useEnergy()
+Engine->-FuelTank:consume(10)

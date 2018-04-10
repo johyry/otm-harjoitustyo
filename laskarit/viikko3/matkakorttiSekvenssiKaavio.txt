@@ -1,0 +1,38 @@
+title Matkakortti
+
+Main->+Main:main()
+
+Main->+HKLLaitehallinto:new HKLLaitehallinto laitehallinto
+HKLLaitehallinto->HKLLaitehallinto:new ArrayList<Lataajalaite> lataajat
+HKLLaitehallinto->-HKLLaitehallinto:new ArrayList<Lukijalaite> lukijat
+
+Main->Rautatietori:new Lataajalaite rautatietori
+Main->Ratikka6:new Lukijalaite ratikka6
+Main->Bussi244:new Lukijalaite bussi244
+
+Main->+HKLLaitehallinto:laitehallinto.lisaaLataaja(Rautatietori)
+HKLLaitehallinto->-HKLLaitehallinto:lataajat.add(Rautatietori)
+
+Main->+HKLLaitehallinto:laitehallinto.lisaaLukija(ratikka6)
+HKLLaitehallinto->-HKLLaitehallinto:lukijat.add(ratikka6)
+
+Main->+HKLLaitehallinto:laitehallinto:lisaaLukija(bussi244)
+HKLLaitehallinto->-HKLLaitehallinto:lukijat.add(bussi244)
+
+Main->Lippuluukku:new Kioski lippuluukku
+
+Lippuluukku->Lippuluukku:ostaMatkakortti("Arto")
+Lippuluukku->Artonkortti:new Matkakortti artonkortti
+
+Main->+Rautatietori:lataaArvoa(artonkortti, 3)
+Rautatietori->-Artonkortti:kasvataArvoa(3)
+
+Main->+Ratikka6:ostaLippu(artonKortti, 0)
+Ratikka6->Artonkortti:getArvo
+Ratikka6->Artonkortti:vahennaArvoa(1.5)
+Ratikka6->-Main:true
+
+Main->+Bussi244:bussi244.ostaLippu(artonkortti, 2)
+Bussi244->Artonkortti:artonkortti.getArvo
+Bussi244->Main:false
+
