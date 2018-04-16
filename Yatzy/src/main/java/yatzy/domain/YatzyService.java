@@ -125,6 +125,23 @@ public class YatzyService {
         return null;
     }
 
-    
+    public List<User> getUsersLoggedIn() {
+        return usersLoggedIn;
+    }
+
+    public String getWinner() {
+        int bestScore = 0;
+        User user = null;
+        
+        for (ScoreSheetService service : scoreSheetServices) {
+            if (service.scoresheet.getTotal() > bestScore) {
+                user = service.getUser();
+                bestScore = service.scoresheet.getTotal();
+            }
+        }
+        
+        return user + " with score of: " + bestScore;
+        
+    }
 
 }

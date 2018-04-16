@@ -175,7 +175,7 @@ public class Scoresheet {
         this.fourOfAKindSet = true;
     }
 
-    public int getSmallStraigt() {
+    public int getSmallStraight() {
         return smallStraight;
     }
 

@@ -120,7 +120,7 @@ public class YatzyUi {
                     System.out.println();
                     yatzyService.printScoresheet(user);
                     System.out.println("");
-                    System.out.println("Turn: " + (i + 1));
+                    System.out.println("Turn: " + (i + 1) + " of " + user);
                     List<Dice> dices = yatzyService.firstThrow();
                     printDices(dices);
 
@@ -181,10 +181,15 @@ public class YatzyUi {
 
                 }
             }
+            System.out.println();
+            System.out.println("Final scores: ");
+            System.out.println();
             
             for (int i = 0; i < usersLoggedIn.size(); i++) {
                 yatzyService.printScoresheet(usersLoggedIn.get(i));
             }
+            System.out.println();
+            System.out.println("Winner is: " + yatzyService.getWinner());
 
         }
 
