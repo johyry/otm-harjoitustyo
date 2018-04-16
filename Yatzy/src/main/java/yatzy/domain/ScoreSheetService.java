@@ -123,7 +123,7 @@ public class ScoreSheetService {
 
         for (int i = 6; i > 0; i--) {
             if (sorted.get(i) >= 4) {
-                scoresheet.setOnePair(sorted.get(i) * i);
+                scoresheet.setFourOfAKind(sorted.get(i) * i);
                 break;
             }
         }
@@ -131,11 +131,20 @@ public class ScoreSheetService {
     }
 
     public void setSmallStraight(List<Dice> dices) {
+        Map<Integer, Integer> sorted = sortDice(dices);
+        
+        if (sorted.get(1) <= 1 && sorted.get(2) <= 1 && sorted.get(3) <= 1 && sorted.get(4) <= 1 && sorted.get(5) <= 1) {
+            scoresheet.setSmallStraigt(15);
+        }
 
     }
 
     public void setBigStraight(List<Dice> dices) {
+        Map<Integer, Integer> sorted = sortDice(dices);
 
+        if (sorted.get(2) <= 1 && sorted.get(3) <= 1 && sorted.get(4) <= 1 && sorted.get(5) <= 1 && sorted.get(6) <= 1) {
+            scoresheet.setBigStraight(20);
+        }
     }
 
     public void setFullHouse(List<Dice> dices) {
@@ -169,9 +178,9 @@ public class ScoreSheetService {
         
     }
     
-    public String getScoreSheet() {
+    public void printScoreSheet() {
         scoresheet.calculateTotals();
-        return "Scoresheet:\n"
+        System.out.println("Scoresheet:\n"
                 + "1: Ones: " + scoresheet.getOnes() + "\n"
                 + "2: Twos: " + scoresheet.getTwos()+ "\n"
                 + "3: Threes: " + scoresheet.getThrees()+ "\n"
@@ -190,9 +199,107 @@ public class ScoreSheetService {
                 + "16: Chance: " + scoresheet.getChance() + "\n"
                 + "17: Yatzy: " + scoresheet.getYatzy()+ "\n"
                 + "18: Lower Section total: " + scoresheet.getLowerSectionTotal() + "\n"
-                + "19: Total: " + scoresheet.getTotal();
+                + "19: Total: " + scoresheet.getTotal());
                 
                 
+    }
+    
+    
+    public boolean insertScore(List<Dice> dices, String input) {
+        switch (input) {
+            case "1":
+                if (scoresheet.isOnesSet()) {
+                    return false;
+                } 
+                setOnes(dices);
+                return true;
+            case "2":
+                if (scoresheet.isTwosSet()) {
+                    return false;
+                } 
+                setTwos(dices);
+                return true;
+            case "3":
+                if (scoresheet.isThreesSet()) {
+                    return false;
+                } 
+                setThrees(dices);
+                return true;
+            case "4":
+                if (scoresheet.isFoursSet()) {
+                    return false;
+                } 
+                setFours(dices);
+                return true;
+            case "5":
+                if (scoresheet.isFivesSet()) {
+                    return false;
+                } 
+                setFives(dices);
+                return true;
+            case "6":
+                if (scoresheet.isSixesSet()) {
+                    return false;
+                } 
+                setSixes(dices);
+                return true;
+            case "9":
+                if (scoresheet.isOnePairSet()) {
+                    return false;
+                } 
+                setOnePair(dices);
+                return true;
+            case "10":
+                if (scoresheet.isTwoPairSet()) {
+                    return false;
+                } 
+                setTwoPair(dices);
+                return true;
+            case "11":
+                if (scoresheet.isThreeOfAKindSet()) {
+                    return false;
+                } 
+                setThreeOfAKind(dices);
+                return true;
+            case "12":
+                if (scoresheet.isFourOfAKindSet()) {
+                    return false;
+                } 
+                setFourOfAKind(dices);
+                return true;
+            case "13":
+                if (scoresheet.isSmallStraightSet()) {
+                    return false;
+                } 
+                setSmallStraight(dices);
+                return true;
+            case "14":
+                if (scoresheet.isBigStraightSet()) {
+                    return false;
+                } 
+                setBigStraight(dices);
+                return true;
+            case "15":
+                if (scoresheet.isFullHouseSet()) {
+                    return false;
+                } 
+                setFullHouse(dices);
+                return true;
+            case "16":
+                if (scoresheet.isChanceSet()) {
+                    return false;
+                } 
+                setChance(dices);
+                return true;
+            case "17":
+                if (scoresheet.isYatzySet()) {
+                    return false;
+                } 
+                setYatzy(dices);
+                return true;
+            default:
+                return false;
+        }
     }
 
 }

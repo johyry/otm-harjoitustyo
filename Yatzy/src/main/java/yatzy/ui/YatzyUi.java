@@ -22,7 +22,6 @@ public class YatzyUi {
     public YatzyUi(Scanner scanner) throws Exception {
         this.scanner = scanner;
 
-        
         yatzyService = new YatzyService();
     }
 
@@ -107,7 +106,7 @@ public class YatzyUi {
     }
 
     private void printUsers() throws Exception {
-        yatzyService.printUsers();
+        yatzyService.printAllUsers();
     }
 
     private void printDices(List<Dice> dices) {
@@ -125,7 +124,7 @@ public class YatzyUi {
         System.out.println("Welcome to Single Player Game " + yatzyService.getLoggedIn() + "!");
         System.out.println("");
 
-        for (int i = 0; i < 18; i++) {
+        for (int i = 0; i < 15; i++) {
             System.out.println();
             yatzyService.printScoresheet();
             System.out.println("");
@@ -143,9 +142,15 @@ public class YatzyUi {
                 input = scanner.nextLine();
                 dices = yatzyService.throwDices(dices, input);
             } else if (input.equals("2")) {
-                System.out.println("Insert the number of cell in the scoresheet");
-                input = scanner.nextLine();
-                yatzyService.insertScore(dices, input);
+                while (true) {
+                    System.out.println("Insert the number of cell in the scoresheet");
+                    input = scanner.nextLine();
+                    if (yatzyService.insertScore(dices, input)) {
+                        break;
+                    }
+
+                }
+
                 continue;
             }
 
@@ -161,20 +166,32 @@ public class YatzyUi {
                 input = scanner.nextLine();
                 dices = yatzyService.throwDices(dices, input);
             } else if (input.equals("2")) {
-                System.out.println("Insert the number of cell in the scoresheet");
-                input = scanner.nextLine();
-                yatzyService.insertScore(dices, input);
+
+                while (true) {
+                    System.out.println("Insert the number of cell in the scoresheet");
+                    input = scanner.nextLine();
+                    if (yatzyService.insertScore(dices, input)) {
+                        break;
+                    }
+
+                }
                 continue;
             }
 
             printDices(dices);
 
-            System.out.println("Insert the number of cell in the scoresheet ");
-            input = scanner.nextLine();
-            yatzyService.insertScore(dices, input);
-            
+            while (true) {
+                System.out.println("Insert the number of cell in the scoresheet");
+                input = scanner.nextLine();
+                if (yatzyService.insertScore(dices, input)) {
+                    break;
+                }
+
+            }
 
         }
+        
+        yatzyService.printScoresheet();
 
     }
 

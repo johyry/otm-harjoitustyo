@@ -1,29 +1,29 @@
 package yatzy.domain;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import yatzy.dao.Database;
 import yatzy.dao.FileUserDao;
 import yatzy.dao.UserDao;
 
 public class YatzyService {
 
-    private UserDao userDao;
     private User loggedIn;
     private ScoreSheetService scoresheetService;
     private Scoresheet scoresheet;
-    private Database database;
+    private UserService userService;
 
     public YatzyService() throws Exception {
-        
-        database = new Database("jdbc:sqlite:users.db");
-        database.init();
+        userService = new UserService();
 
-        userDao = new FileUserDao(database);
     }
 
+    // USERSERVICE SERVICES
     public boolean login(String username) throws Exception {
-        User user = userDao.findByUsername(username);
+        User user = userService.logIn(username);
+
         if (user == null) {
             return false;
         }
@@ -36,31 +36,26 @@ public class YatzyService {
     }
 
     public boolean createUser(String username, String name) throws Exception {
-        if (userDao.findByUsername(username) != null) {
-            return false;
-        }
-        User user = new User(username, name);
-        try {
-            userDao.create(user);
-        } catch (Exception e) {
+        if (userService.createUser(username, name)) {
+            return true;
+        } else {
             return false;
         }
 
-        return true;
     }
 
-    public void printUsers() throws Exception {
-        List<User> users = userDao.getAll();
+    public void printAllUsers() throws Exception {
+        userService.printAllUsers();
 
-        for (User user : users) {
-            System.out.println("Username: " + user.getUsername() + ", Name: " + user.getName());
-        }
+    }
 
+    public User getLoggedIn() {
+        return this.loggedIn;
     }
 
     // AFTER LOGGED IN SERVICES
     public void printScoresheet() {
-        System.out.println(this.scoresheetService.getScoreSheet());
+        scoresheetService.printScoreSheet();
     }
 
     public List<Dice> firstThrow() {
@@ -74,22 +69,49 @@ public class YatzyService {
 
     public List<Dice> throwDices(List<Dice> dices, String input) {
         String[] hold = input.split(" ");
+        Map<Integer, Integer> holdOrNot = new HashMap<>();
+        holdOrNot.put(1, 0);
+        holdOrNot.put(2, 0);
+        holdOrNot.put(3, 0);
+        holdOrNot.put(4, 0);
+        holdOrNot.put(5, 0);
 
-        for (int i = 0; i < 5; i++) {
-            if (i < hold.length && !hold[i].equals(i)) {
+        for (String hold1 : hold) {
+            switch (hold1) {
+                case "1":
+                    holdOrNot.put(1, 1);
+                    break;
+                case "2":
+                    holdOrNot.put(2, 1);
+                    break;
+                case "3":
+                    holdOrNot.put(3, 1);
+                    break;
+                case "4":
+                    holdOrNot.put(4, 1);
+                    break;
+                case "5":
+                    holdOrNot.put(5, 1);
+                    break;
+            }
+        }
+
+        for (int i = 0; i < dices.size(); i++) {
+            if (holdOrNot.get(i + 1) == 0) {
                 dices.get(i).throwDice();
             }
         }
 
         return dices;
     }
-    
-    public void insertScore(List<Dice> dices, String input) {
-        
-    }
 
-    public User getLoggedIn() {
-        return this.loggedIn;
+    public boolean insertScore(List<Dice> dices, String input) {
+        if (scoresheetService.insertScore(dices, input)) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 
 }
