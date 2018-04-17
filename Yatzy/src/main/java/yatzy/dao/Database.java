@@ -46,8 +46,34 @@ public class Database {
         // create tables
         list.add("CREATE TABLE Users (username varchar(30), name varchar(30))");
         
+        list.add("CREATE TABLE Statistics "
+                + "(user_id integer,"
+                + " ones integer,"
+                + " twos integer,"
+                + " threes integer,"
+                + " fours integer,"
+                + " fives integer,"
+                + " sixes integer,"
+                + " uppersectiontotal integer,"
+                + " bonus integer,"
+                + " onepair integer,"
+                + " twopair integer,"
+                + " threeofakind integer,"
+                + " fourofakind integer,"
+                + " smallstraight integer,"
+                + " bigstraight integer,"
+                + " fullhouse integer,"
+                + " chance integer,"
+                + " yatzy integer,"
+                + " lowersectiontotal integer,"
+                + " total integer,"
+                + " FOREIGN KEY (user_id) REFERENCES (user(id))");
+                 
+                                         
+        
         // test data
         list.add("INSERT Into Users (username, name) VALUES ('xdjonttu', 'johannes')");
+        list.add("INSERT Into Statistics (user_id, ones, twos, threes, fours, fives, sixes) VALUES (1, 5, 10, 15, 20, 25, 30)");
         
         return list;
     }
