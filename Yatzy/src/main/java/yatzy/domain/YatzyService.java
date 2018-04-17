@@ -10,29 +10,35 @@ import yatzy.dao.UserDao;
 
 public class YatzyService {
 
-    private User loggedIn;
-    private ScoreSheetService scoresheetService;
-    private Scoresheet scoresheet;
+
+    private List<User> usersLoggedIn;
+    private List<ScoreSheetService> scoreSheetServices;
+
     private UserService userService;
 
     public YatzyService() throws Exception {
         userService = new UserService();
 
+
+        usersLoggedIn = new ArrayList<>();
+        scoreSheetServices = new ArrayList<>();
     }
 
     // USERSERVICE SERVICES
-    public boolean login(String username) throws Exception {
+    public List<User> login(String username) throws Exception {
+
         User user = userService.logIn(username);
 
         if (user == null) {
-            return false;
+            return null;
         }
 
-        loggedIn = user;
-        scoresheet = new Scoresheet(user);
-        scoresheetService = new ScoreSheetService(user, scoresheet);
+        usersLoggedIn.add(user);
+        scoreSheetServices.add(new ScoreSheetService(user));
+        
+        
 
-        return true;
+        return usersLoggedIn;
     }
 
     public boolean createUser(String username, String name) throws Exception {
@@ -44,17 +50,22 @@ public class YatzyService {
 
     }
 
-    public void printAllUsers() throws Exception {
-        userService.printAllUsers();
 
-    }
+    public void printAllExistingUsers() throws Exception {
+        
+        userService.printAllExistingUsers();
+}
 
-    public User getLoggedIn() {
-        return this.loggedIn;
-    }
+
+    
+
+    
 
     // AFTER LOGGED IN SERVICES
-    public void printScoresheet() {
+
+    public void printScoresheet(User user) {
+        ScoreSheetService scoresheetService = findScoreSheetService(user);
+
         scoresheetService.printScoreSheet();
     }
 
@@ -105,12 +116,43 @@ public class YatzyService {
         return dices;
     }
 
-    public boolean insertScore(List<Dice> dices, String input) {
+    
+    public boolean insertScore(User user, List<Dice> dices, String input) {
+        ScoreSheetService scoresheetService = findScoreSheetService(user);
         if (scoresheetService.insertScore(dices, input)) {
             return true;
         } else {
             return false;
         }
+
+    }
+
+    private ScoreSheetService findScoreSheetService(User user) {
+        for (ScoreSheetService service : scoreSheetServices) {
+            if (service.getUser().equals(user)) {
+                return service;
+            }
+        }
+        return null;
+    }
+
+    public List<User> getUsersLoggedIn() {
+        return usersLoggedIn;
+    }
+
+    public String getWinner() {
+        int bestScore = 0;
+        User user = null;
+        
+        for (ScoreSheetService service : scoreSheetServices) {
+            if (service.scoresheet.getTotal() > bestScore) {
+                user = service.getUser();
+                bestScore = service.scoresheet.getTotal();
+            }
+        }
+        
+        return user + " with score of: " + bestScore;
+        
 
     }
 

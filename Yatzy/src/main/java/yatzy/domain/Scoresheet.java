@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package yatzy.domain;
 
 /**
@@ -180,12 +175,13 @@ public class Scoresheet {
         this.fourOfAKindSet = true;
     }
 
-    public int getSmallStraigt() {
+    public int getSmallStraight() {
         return smallStraight;
     }
 
-    public void setSmallStraigt(int smallStraigt) {
-        this.smallStraight = smallStraigt;
+
+    public void setSmallStraight(int smallStraight) {
+        this.smallStraight = smallStraight;
         this.smallStraightSet = true;
     }
 
@@ -300,4 +296,8 @@ public class Scoresheet {
     public boolean isYatzySet() {
         return yatzySet;
     }
+
+
+
 }
+

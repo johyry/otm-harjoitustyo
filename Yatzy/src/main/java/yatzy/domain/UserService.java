@@ -44,7 +44,9 @@ public class UserService {
 
     }
     
-    public void printAllUsers() throws Exception {
+
+    public void printAllExistingUsers() throws Exception {
+
         List<User> users = userDao.getAll();
 
         for (User user : users) {
@@ -53,4 +55,7 @@ public class UserService {
 
     }
 
+
+
 }
+
