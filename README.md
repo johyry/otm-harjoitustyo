@@ -7,11 +7,11 @@
 
 [Hours worked](Documentation/hours_worked.md)
 
-[Class diagram](Documentation/architecture.md)
+[Architecture](Documentation/architecture.md)
 
 <h2> Releases </h2>
 
-[a link](https://github.com/johyry/otm-harjoitustyo/releases/tag/week5)
+[Release 1, week 5](https://github.com/johyry/otm-harjoitustyo/releases/tag/week5)
 
 <h2> Command line features </h2>
 
@@ -19,19 +19,19 @@
 
 Perform tests:
 
-mvn test
+*mvn test*
 
 Test results:
 
-mvn jacoco:report
+*mvn jacoco:report*
 
 You can have look at the report at target/site/jacoco/index.html
 
 <h3> Generating jar-file </h3>
 
-Command
+Command:
 
-mvn package
+*mvn package*
 
 Will generate a runnable jar-file into the directory target
 
@@ -40,7 +40,7 @@ Will generate a runnable jar-file into the directory target
 
 Command 
 
-mvn jxr:jxr checkstyle:checkstyle
+*mvn jxr:jxr checkstyle:checkstyle*
 
 will run the checkups determined by [checkstyle.xml](Yatzy/checkstyle.xml)
 
