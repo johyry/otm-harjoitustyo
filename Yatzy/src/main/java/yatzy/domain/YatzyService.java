@@ -15,9 +15,14 @@ public class YatzyService {
     private List<ScoreSheetService> scoreSheetServices;
 
     private UserService userService;
+    private StatisticsService statisticsService;
 
     public YatzyService() throws Exception {
-        userService = new UserService();
+        Database database = new Database("jdbc:sqlite:usersAndStatistics.db");
+        database.init();
+        
+        userService = new UserService(database);
+        statisticsService = new StatisticsService(database, userService);
 
 
         usersLoggedIn = new ArrayList<>();

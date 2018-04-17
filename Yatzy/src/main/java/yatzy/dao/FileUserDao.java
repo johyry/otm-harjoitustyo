@@ -20,7 +20,7 @@ public class FileUserDao implements UserDao {
     @Override
     public User create(User user) throws SQLException {
         Connection connection = database.getConnection();
-        PreparedStatement stmt = connection.prepareStatement("INSERT INTO Users (username, name) VALUES (?, ?)");
+        PreparedStatement stmt = connection.prepareStatement("INSERT INTO user (username, name) VALUES (?, ?)");
         stmt.setObject(1, user.getUsername());
         stmt.setObject(2, user.getName());
 
@@ -33,7 +33,7 @@ public class FileUserDao implements UserDao {
     @Override
     public User findByUsername(String username) throws SQLException {
         Connection connection = database.getConnection();
-        PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Users WHERE username = ?");
+        PreparedStatement stmt = connection.prepareStatement("SELECT * FROM user WHERE username = ?");
         stmt.setObject(1, username);
         ResultSet rs = stmt.executeQuery();
         
@@ -53,7 +53,7 @@ public class FileUserDao implements UserDao {
     @Override
     public List<User> getAll() throws SQLException {
         Connection connection = database.getConnection();
-        PreparedStatement stmt = connection.prepareStatement("SELECT * FROM Users");
+        PreparedStatement stmt = connection.prepareStatement("SELECT * FROM user");
         
         List<User> users = new ArrayList<>();
         
@@ -69,5 +69,22 @@ public class FileUserDao implements UserDao {
         connection.close();
         
         return users;
+    }
+
+    @Override
+    public int getId(String username) throws SQLException {
+        
+        Connection connection = database.getConnection();
+        PreparedStatement stmt = connection.prepareStatement("SELECT * FROM user WHERE username = ?");
+        stmt.setObject(1, username);
+        ResultSet rs = stmt.executeQuery();
+        
+        int id = rs.getInt("id");
+        
+        rs.close();
+        stmt.close();
+        connection.close();
+        
+        return id;
     }
 }

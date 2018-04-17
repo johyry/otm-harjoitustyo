@@ -7,12 +7,10 @@ import yatzy.dao.UserDao;
 
 public class UserService {
 
-    private Database database;
     private UserDao userDao;
 
-    public UserService() throws Exception {
-        database = new Database("jdbc:sqlite:users.db");
-        database.init();
+    public UserService(Database database) throws Exception {
+        
         userDao = new FileUserDao(database);
     }
 
@@ -53,6 +51,17 @@ public class UserService {
             System.out.println("Username: " + user.getUsername() + ", Name: " + user.getName());
         }
 
+    }
+    
+    public int findUserId(String username) throws Exception {
+        
+        if (userDao.findByUsername(username) == null) {
+            return -1;
+        }
+        
+        int id = userDao.getId(username);
+        
+        return id;
     }
 
 
