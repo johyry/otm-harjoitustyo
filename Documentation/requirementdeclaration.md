@@ -1,49 +1,37 @@
 <h1>Yatzy</h1>
 
-<h2>Sovelluksen tarkoitus</h2>
+<h2>The Purpose of the application</h2>
 
-Sovelluksen avulla käyttäjä voi pelata Yatzya, joko yksin tai kaksin, ja myös tarkastella omia ja yleisiä tilastoja pelattuihin peleihin liittyen.
+With this application the user can play Yatzy either alone, or with other users. There is also functionality for saving statistics. Users can view general statistic and user based statistics.
 
-<h2>Käyttäjät</h2>
+<h2>Users</h2>
 
-Alkuvaiheessa on vain yksi käyttäjärooli, eli normaali käyttäjä, jolla on oikeudet pelata ja tarkastella omia ja yleisiä tilastoja. Myöhemmin ohjelmaan saatetaan luoda pääkäyttäjä, jolla on oikeudet yleisten tilastojen katseluun ja normaalien käyttäjien poistoon. Tällöin normaaleilta käyttäjilta saatetaan poistaa oikeudet katsella yleisiä tilastoja.
+There is only a normal user. Later there might be a superuser who has the rights to modify statistics and remove users.
 
-<h2> Käyttöliittymäluonnos</h2>
+<h2> Interface </h2>
 
-Sovellus aukeaa kirjautumisnäkymään, josta on mahdollista siirtyä uuden käyttäjän luomisnäkymään, tarkastelemaan tilastoja tai sitten onnistuneen kirjautumisen yhteydessä pelinäkymään.
+The software opens into a main menu. From main menu you can:
+<ol type="1">
+	<li>Play Yatzy (requirement: 1 logged in user)</li>
+	<li>Log In</li>
+	<li>Log out</li>
+	<li>Create new user</li>
+	<li>List all existing users</li>
+	<li>View statistics (yet to be implemented)</li>
+	<li>Exit the game</li>
+</ol> 
 
-Ikkunoita on siis neljä:
 
-1. Kirjautumisikkuna
-2. Luo uusi käyttäjä-ikkuna
-3. Tilastot
-4. Pelinäkymä
+1. Will take you to the game with all logged in users.
+2. You will be asked your username
+3. You will be asked your username
+4. You will be asked your name and username
+5. Will list all existing users
+6. A scene to view statistics on
+7. Exit the game
 
-<h2> Perusversion tarjoama toiminnallisuus</h2>
 
-<h3> Kirjautumisikkuna </h3>
+<h2> Possible future implementations </h2>
 
-- Käyttäjä voi kirjautua sisään käyttäjätunnuksellaan. Tästä siirrytään pelaamaan
-
-- Luo uusi käyttäjä -nappi, josta siirrytään kyseiseen ikkunaan.
-
-- Tilastot, josta pääsee tarkastelemaan käyttäjäkohtaisia ja yleisiä tilastoja.
-
-<h3> Luo uusi käyttäjä </h3>
-
-- Nimi
-- Käyttäjätunnus
-
-<h3> Tilastot </h3>
-
-Ikkunaan saapuessasi aukeaa yleiset testit. Valikosta voit valita käyttäjätunnuksen perusteella yksilökohtaiset tilastot.
-
-Tilastoissa on maininta kokonaispisteiden keskiarvosta, ja lisäksi ruutukohtaiset (esim. kolmiluku) keskiarvot. Lisäksi voidaan tarkastella kuinka monta kertaa kyseinen ruutu on jäänyt nollalle.
-
-<h3> Pelinäkymä </h3>
-
-Normaali Yatzy pelinäkymä. Vasemmalla on pistetaulukko ja oikealla nopat. Heittomahdollisuuksia on kolme.
-
-<h2> Jatkokehitysideoita </h2>
-
-Tekoäly
+AI
+Superuser
