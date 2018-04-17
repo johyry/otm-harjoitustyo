@@ -1,6 +1,6 @@
-# Tässä on otsikko
+# Yatzy
 
-Tänne tulee myöhemmin **tärkeää** tekstiä *erittäin* tärkeistä asioista.
+
 
 [Requirement declaration](Documentation/requirementdeclaration.md)
 
