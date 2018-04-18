@@ -379,4 +379,52 @@ public class Statistics {
 
     }
 
+    public void printAverages() {
+        System.out.println("Following statistics are average per game on " + getTotalGames() + " games: \n\n"
+                + "1: Ones: " + getAverageOnes() + "\n"
+                + "2: Twos: " + getAverageTwos() + "\n"
+                + "3: Threes: " + getAverageThrees() + "\n"
+                + "4: Fours: " + getAverageFours() + "\n"
+                + "5: Fives: " + getAverageFives() + "\n"
+                + "6: Sixes: " + getAverageSixes() + "\n"
+                + "7: Upper Section Total: " + getAverageUpperSection() + "\n"
+                + "8: Bonus: " + getAverageBonus() + "\n"
+                + "9: One Pair: " + getAverageOnePair() + "\n"
+                + "10: Two Pair: " + getAverageTwoPair() + "\n"
+                + "11: Three of a Kind: " + getAverageThreeOfAKind() + "\n"
+                + "12: Four of a Kind: " + getAverageFourOfAKind() + "\n"
+                + "13: Small Straight: " + getAverageBigStraight() + "\n"
+                + "14: Big Straight: " + getAverageBigStraight() + "\n"
+                + "15: Full House: " + getAverageFullHouse() + "\n"
+                + "16: Chance: " + getAverageChance() + "\n"
+                + "17: Yatzy: " + getAverageYatzy() + "\n"
+                + "18: Lower Section total: " + getAverageLowerSection() + "\n"
+                + "19: Total: " + getAverageTotal());
+        System.out.println();
+    }
+    
+    public void printTotals() {
+        System.out.println("Following statistics are total scores on all " + getTotalGames() + " games: \n\n"
+                + "1: Ones: " + getTotalOnes() + "\n"
+                + "2: Twos: " + getTotalTwos() + "\n"
+                + "3: Threes: " + getTotalThrees() + "\n"
+                + "4: Fours: " + getTotalFours() + "\n"
+                + "5: Fives: " + getTotalFives() + "\n"
+                + "6: Sixes: " + getTotalSixes() + "\n"
+                + "7: Upper Section Total: " + getTotalUpperSection() + "\n"
+                + "8: Bonus: " + getTotalBonus() + "\n"
+                + "9: One Pair: " + getTotalOnePair() + "\n"
+                + "10: Two Pair: " + getTotalTwoPair() + "\n"
+                + "11: Three of a Kind: " + getTotalThreeOfAKind() + "\n"
+                + "12: Four of a Kind: " + getTotalFourOfAKind() + "\n"
+                + "13: Small Straight: " + getTotalBigStraight() + "\n"
+                + "14: Big Straight: " + getTotalBigStraight() + "\n"
+                + "15: Full House: " + getTotalFullHouse() + "\n"
+                + "16: Chance: " + getTotalChance() + "\n"
+                + "17: Yatzy: " + getTotalYatzy() + "\n"
+                + "18: Lower Section total: " + getTotalLowerSection() + "\n"
+                + "19: Total: " + getTotalTotal());
+        System.out.println();
+    }
+
 }

@@ -79,7 +79,7 @@ public class FileStatisticsDao implements StatisticsDao {
             statistics.setTotalTwoPair(rs.getInt("twopair") + statistics.getTotalTwoPair());
             statistics.setTotalThreeOfAKind(rs.getInt("threeofakind") + statistics.getTotalThreeOfAKind());
             statistics.setTotalFourOfAKind(rs.getInt("fourofakind") + statistics.getTotalFourOfAKind());
-            statistics.setTotalSmallStraight(rs.getInt("smallstraigh") + statistics.getTotalSmallStraight());
+            statistics.setTotalSmallStraight(rs.getInt("smallstraight") + statistics.getTotalSmallStraight());
             statistics.setTotalBigStraight(rs.getInt("bigstraight") + statistics.getTotalBigStraight());
             statistics.setTotalFullHouse(rs.getInt("fullhouse") + statistics.getTotalFullHouse());
             statistics.setTotalChance(rs.getInt("chance") + statistics.getTotalChance());
@@ -89,6 +89,8 @@ public class FileStatisticsDao implements StatisticsDao {
             statistics.setTotalGames(statistics.getTotalGames() + 1);
 
         }
+        
+        statistics.calculateAveragesFromTotals();
 
         rs.close();
         stmt.close();

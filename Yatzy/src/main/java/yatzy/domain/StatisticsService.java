@@ -33,14 +33,23 @@ public class StatisticsService {
 
     }
     
-    public Statistics getAllStatistics() throws SQLException {
+    public void printAllStatistics() throws SQLException {
         int id = -1;
-        return statisticsDao.getStatistics(0);
+        Statistics statistics = statisticsDao.getStatistics(id);
+        
+        statistics.printAverages();
+        statistics.printTotals();
+        
     }
     
-    public Statistics getUserStatistics(User user) throws SQLException, Exception {
-        int id = userService.findUserId(user.getUsername());
-        return statisticsDao.getStatistics(id);
+    public void printUserStatistics(int userId) throws SQLException, Exception {
+        Statistics statistics = statisticsDao.getStatistics(userId);
+        
+        statistics.printAverages();
+        
+        statistics.printTotals();
+        
+        
     }
     
     

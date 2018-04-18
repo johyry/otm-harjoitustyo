@@ -1,5 +1,6 @@
 package yatzy.domain;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,7 +11,6 @@ import yatzy.dao.UserDao;
 
 public class YatzyService {
 
-
     private List<User> usersLoggedIn;
     private List<ScoreSheetService> scoreSheetServices;
 
@@ -20,10 +20,9 @@ public class YatzyService {
     public YatzyService() throws Exception {
         Database database = new Database("jdbc:sqlite:usersAndStatistics.db");
         database.init();
-        
+
         userService = new UserService(database);
         statisticsService = new StatisticsService(database, userService);
-
 
         usersLoggedIn = new ArrayList<>();
         scoreSheetServices = new ArrayList<>();
@@ -40,8 +39,6 @@ public class YatzyService {
 
         usersLoggedIn.add(user);
         scoreSheetServices.add(new ScoreSheetService(user));
-        
-        
 
         return usersLoggedIn;
     }
@@ -55,19 +52,12 @@ public class YatzyService {
 
     }
 
-
     public void printAllExistingUsers() throws Exception {
-        
+
         userService.printAllExistingUsers();
-}
-
-
-    
-
-    
+    }
 
     // AFTER LOGGED IN SERVICES
-
     public void printScoresheet(User user) {
         ScoreSheetService scoresheetService = findScoreSheetService(user);
 
@@ -121,7 +111,6 @@ public class YatzyService {
         return dices;
     }
 
-    
     public boolean insertScore(User user, List<Dice> dices, String input) {
         ScoreSheetService scoresheetService = findScoreSheetService(user);
         if (scoresheetService.insertScore(dices, input)) {
@@ -148,17 +137,42 @@ public class YatzyService {
     public String getWinner() {
         int bestScore = 0;
         User user = null;
-        
+
         for (ScoreSheetService service : scoreSheetServices) {
             if (service.scoresheet.getTotal() > bestScore) {
                 user = service.getUser();
                 bestScore = service.scoresheet.getTotal();
             }
         }
-        
-        return user + " with score of: " + bestScore;
-        
 
+        return user + " with score of: " + bestScore;
+
+    }
+
+    public void printGeneralStatistics() throws SQLException {
+        statisticsService.printAllStatistics();
+
+    }
+
+    public boolean printUserStatistics(String input) throws Exception {
+        int id = userService.findUserId(input);
+        if (id == -1) {
+            return false;
+        } else {
+            statisticsService.printUserStatistics(id);
+            return true;
+        }
+    }
+
+    public void saveStatistics() throws Exception {
+        
+        for (int i = 0; i < usersLoggedIn.size(); i++) {
+            User user = usersLoggedIn.get(i);
+            
+            statisticsService.insertScoresheetToStatistics(user, findScoreSheetService(user).scoresheet);
+            
+        }
+        
     }
 
 }

@@ -31,7 +31,8 @@ public class YatzyUi {
                     + "Log out (3)\n"
                     + "Create new user (4)\n"
                     + "List existing users (5)\n"
-                    + "Exit (6)");
+                    + "View statistics (6)\n"
+                    + "Exit (7)");
 
             String input = scanner.nextLine();
             if (input.equals("1")) {
@@ -45,6 +46,8 @@ public class YatzyUi {
             } else if (input.equals("5")) {
                 printAllExistingUsers();
             } else if (input.equals("6")) {
+                statisticsMenu();
+            } else {
                 break;
             }
 
@@ -100,16 +103,12 @@ public class YatzyUi {
         }
     }
 
-
     private void playYatzy() throws Exception {
         if (usersLoggedIn == null) {
             System.out.println("Log in first!");
 
-
         } else {
 
-
-        
             for (int i = 0; i < 15; i++) {
 
                 for (int a = 0; a < usersLoggedIn.size(); a++) {
@@ -183,34 +182,65 @@ public class YatzyUi {
             System.out.println();
             System.out.println("Final scores: ");
             System.out.println();
-            
+
             for (int i = 0; i < usersLoggedIn.size(); i++) {
                 yatzyService.printScoresheet(usersLoggedIn.get(i));
 
             }
             System.out.println();
             System.out.println("Winner is: " + yatzyService.getWinner());
+            yatzyService.saveStatistics();
 
         }
 
+    }
+
+    private void statisticsMenu() throws Exception {
+        System.out.println("");
+        System.out.println("Welcome to Statistics menu!");
+        System.out.println();
+
+        while (true) {
+            System.out.println("View general statistics (1)\n"
+                    + "View user based statistics (2)\n"
+                    + "Exit (3)\n");
+
+            String input = scanner.nextLine();
+
+            if (input.equals("1")) {
+                yatzyService.printGeneralStatistics();
+            } else if (input.equals("2")) {
+                System.out.println();
+                printAllExistingUsers();
+                System.out.println();
+                System.out.println("Enter the username of the user of whose statistics you would like to view.");
+                input = scanner.nextLine();
+
+                if (yatzyService.printUserStatistics(input)) {
+
+                } else {
+                    System.out.println("User not found.");
+                }
+
+            } else {
+                break;
+            }
+
+        }
     }
 
     private void printAllExistingUsers() throws Exception {
         yatzyService.printAllExistingUsers();
     }
 
-
     private void printDices(List<Dice> dices) {
-
 
         for (int a = 0; a < 5; a++) {
             System.out.print(dices.get(a).getValue() + " ");
         }
 
-
         System.out.println("");
     }
-
 
     private void printLoggedInUsers() {
         System.out.println("Users logged in:");

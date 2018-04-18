@@ -16,6 +16,7 @@ import yatzy.dao.Database;
 import yatzy.dao.FileStatisticsDao;
 import yatzy.dao.StatisticsDao;
 import yatzy.domain.ScoreSheetService;
+import yatzy.domain.Statistics;
 import yatzy.domain.StatisticsService;
 import yatzy.domain.User;
 import yatzy.domain.UserService;
@@ -69,20 +70,43 @@ public class StatisticsServiceTest {
         database.deleteAllData();
     }
 
-//    @Test
-//    public void averageTotalScore() throws Exception {
-//        scoreSheetService1.scoresheet.setOnePair(100);
-//        scoreSheetService1.scoresheet.calculateTotals();
-//        scoreSheetService2.scoresheet.setTwoPair(200);
-//        scoreSheetService2.scoresheet.calculateTotals();
-//        scoreSheetService3.scoresheet.setFourOfAKind(300);
-//        scoreSheetService3.scoresheet.calculateTotals();
-//
-//        statisticsService.insertScoresheetToStatistics(user, scoreSheetService1.scoresheet);
-//        statisticsService.insertScoresheetToStatistics(user, scoreSheetService2.scoresheet);
-//        statisticsService.insertScoresheetToStatistics(user, scoreSheetService3.scoresheet);
-//        assertEquals(200, statisticsService.averageTotalScore(user), 0.1);
-//    }
+    @Test
+    public void averageTotalScore() throws Exception {
+        scoreSheetService1.scoresheet.setOnePair(100);
+        scoreSheetService1.scoresheet.calculateTotals();
+        scoreSheetService2.scoresheet.setTwoPair(200);
+        scoreSheetService2.scoresheet.calculateTotals();
+        scoreSheetService3.scoresheet.setFourOfAKind(300);
+        scoreSheetService3.scoresheet.calculateTotals();
+
+        statisticsService.insertScoresheetToStatistics(user, scoreSheetService1.scoresheet);
+        statisticsService.insertScoresheetToStatistics(user, scoreSheetService2.scoresheet);
+        statisticsService.insertScoresheetToStatistics(user, scoreSheetService3.scoresheet);
+        
+        Statistics statistics = new Statistics();
+        statistics = statisticsDao.getStatistics(-1);
+        assertEquals(200, statistics.getAverageTotal(), 0.1);
+    }
+    
+    @Test
+    public void averageUserTotalScore() throws Exception {
+        scoreSheetService1.scoresheet.setOnePair(100);
+        scoreSheetService1.scoresheet.calculateTotals();
+        scoreSheetService2.scoresheet.setTwoPair(200);
+        scoreSheetService2.scoresheet.calculateTotals();
+        scoreSheetService3.scoresheet.setFourOfAKind(300);
+        scoreSheetService3.scoresheet.calculateTotals();
+
+        statisticsService.insertScoresheetToStatistics(user, scoreSheetService1.scoresheet);
+        statisticsService.insertScoresheetToStatistics(user, scoreSheetService2.scoresheet);
+        statisticsService.insertScoresheetToStatistics(user, scoreSheetService3.scoresheet);
+        
+        int id = userService.findUserId(user.getUsername());
+        
+        Statistics statistics = new Statistics();
+        statistics = statisticsDao.getStatistics(id);
+        assertEquals(200, statistics.getAverageTotal(), 0.1);
+    }
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:
