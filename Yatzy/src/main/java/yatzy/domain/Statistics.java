@@ -208,153 +208,80 @@ public class Statistics {
         return averageOnes;
     }
 
-    public void setAverageOnes(double averageOnes) {
-        this.averageOnes = averageOnes;
-    }
-
     public double getAverageTwos() {
         return averageTwos;
-    }
-
-    public void setAverageTwos(double averageTwos) {
-        this.averageTwos = averageTwos;
     }
 
     public double getAverageThrees() {
         return averageThrees;
     }
 
-    public void setAverageThrees(double averageThrees) {
-        this.averageThrees = averageThrees;
-    }
-
     public double getAverageFours() {
         return averageFours;
-    }
-
-    public void setAverageFours(double averageFours) {
-        this.averageFours = averageFours;
     }
 
     public double getAverageFives() {
         return averageFives;
     }
 
-    public void setAverageFives(double averageFives) {
-        this.averageFives = averageFives;
-    }
-
     public double getAverageSixes() {
         return averageSixes;
-    }
-
-    public void setAverageSixes(double averageSixes) {
-        this.averageSixes = averageSixes;
     }
 
     public double getAverageUpperSection() {
         return averageUpperSection;
     }
 
-    public void setAverageUpperSection(double averageUpperSection) {
-        this.averageUpperSection = averageUpperSection;
-    }
-
     public double getAverageBonus() {
         return averageBonus;
-    }
-
-    public void setAverageBonus(double averageBonus) {
-        this.averageBonus = averageBonus;
     }
 
     public double getAverageOnePair() {
         return averageOnePair;
     }
 
-    public void setAverageOnePair(double averageOnePair) {
-        this.averageOnePair = averageOnePair;
-    }
-
     public double getAverageTwoPair() {
         return averageTwoPair;
-    }
-
-    public void setAverageTwoPair(double averageTwoPair) {
-        this.averageTwoPair = averageTwoPair;
     }
 
     public double getAverageThreeOfAKind() {
         return averageThreeOfAKind;
     }
 
-    public void setAverageThreeOfAKind(double averageThreeOfAKind) {
-        this.averageThreeOfAKind = averageThreeOfAKind;
-    }
-
     public double getAverageFourOfAKind() {
         return averageFourOfAKind;
-    }
-
-    public void setAverageFourOfAKind(double averageFourOfAKind) {
-        this.averageFourOfAKind = averageFourOfAKind;
     }
 
     public double getAverageSmallStraight() {
         return averageSmallStraight;
     }
 
-    public void setAverageSmallStraight(double averageSmallStraight) {
-        this.averageSmallStraight = averageSmallStraight;
-    }
-
     public double getAverageBigStraight() {
         return averageBigStraight;
-    }
-
-    public void setAverageBigStraight(double averageBigStraight) {
-        this.averageBigStraight = averageBigStraight;
     }
 
     public double getAverageFullHouse() {
         return averageFullHouse;
     }
 
-    public void setAverageFullHouse(double averageFullHouse) {
-        this.averageFullHouse = averageFullHouse;
-    }
-
     public double getAverageChance() {
         return averageChance;
-    }
-
-    public void setAverageChance(double averageChance) {
-        this.averageChance = averageChance;
     }
 
     public double getAverageYatzy() {
         return averageYatzy;
     }
 
-    public void setAverageYatzy(double averageYatzy) {
-        this.averageYatzy = averageYatzy;
-    }
-
     public double getAverageLowerSection() {
         return averageLowerSection;
-    }
-
-    public void setAverageLowerSection(double averageLowerSection) {
-        this.averageLowerSection = averageLowerSection;
     }
 
     public double getAverageTotal() {
         return averageTotal;
     }
 
-    public void setAverageTotal(double averageTotal) {
-        this.averageTotal = averageTotal;
-    }
+    
+
 
     public void calculateAveragesFromTotals() {
         averageOnes = totalOnes / totalGames;

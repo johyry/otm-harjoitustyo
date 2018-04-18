@@ -49,6 +49,11 @@ public class ScoreSheetServiceTest {
     @After
     public void tearDown() {
     }
+    
+    @Test
+    public void printScoreSheet() {
+        scoresheetservice.printScoreSheet();
+    }
 
     @Test
     public void setOnes() {
