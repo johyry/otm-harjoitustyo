@@ -1,5 +1,6 @@
 package yatzy.domain;
 
+import java.sql.SQLException;
 import yatzy.dao.Database;
 import yatzy.dao.FileStatisticsDao;
 import yatzy.dao.StatisticsDao;
@@ -31,12 +32,24 @@ public class StatisticsService {
         statisticsDao.insertStatistics(id, scoresheet);
 
     }
-
-    public double averageTotalScore(User user) throws Exception {
-        int id = userService.findUserId(user.getUsername());
-        double result = statisticsDao.getAverageTotalScore(id);
+    
+    public Statistics getAllStatistics() throws SQLException {
         
-        return result;
+        return statisticsDao.getAverageStatistics();
     }
+    
+    public Statistics getUserStatistics(User user) throws SQLException, Exception {
+        int id = userService.findUserId(user.getUsername());
+        return statisticsDao.getAverageStatistics(id);
+    }
+    
+    
+//
+//    public double averageTotalScore(User user) throws Exception {
+//        int id = userService.findUserId(user.getUsername());
+//        double result = statisticsDao.getAverageTotalScore(id);
+//        
+//        return result;
+//    }
 
 }
