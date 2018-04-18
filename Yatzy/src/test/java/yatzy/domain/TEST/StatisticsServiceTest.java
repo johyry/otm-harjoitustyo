@@ -69,20 +69,20 @@ public class StatisticsServiceTest {
         database.deleteAllData();
     }
 
-    @Test
-    public void averageTotalScore() throws Exception {
-        scoreSheetService1.scoresheet.setOnePair(100);
-        scoreSheetService1.scoresheet.calculateTotals();
-        scoreSheetService2.scoresheet.setTwoPair(200);
-        scoreSheetService2.scoresheet.calculateTotals();
-        scoreSheetService3.scoresheet.setFourOfAKind(300);
-        scoreSheetService3.scoresheet.calculateTotals();
-
-        statisticsService.insertScoresheetToStatistics(user, scoreSheetService1.scoresheet);
-        statisticsService.insertScoresheetToStatistics(user, scoreSheetService2.scoresheet);
-        statisticsService.insertScoresheetToStatistics(user, scoreSheetService3.scoresheet);
-        assertEquals(200, statisticsService.averageTotalScore(user), 0.1);
-    }
+//    @Test
+//    public void averageTotalScore() throws Exception {
+//        scoreSheetService1.scoresheet.setOnePair(100);
+//        scoreSheetService1.scoresheet.calculateTotals();
+//        scoreSheetService2.scoresheet.setTwoPair(200);
+//        scoreSheetService2.scoresheet.calculateTotals();
+//        scoreSheetService3.scoresheet.setFourOfAKind(300);
+//        scoreSheetService3.scoresheet.calculateTotals();
+//
+//        statisticsService.insertScoresheetToStatistics(user, scoreSheetService1.scoresheet);
+//        statisticsService.insertScoresheetToStatistics(user, scoreSheetService2.scoresheet);
+//        statisticsService.insertScoresheetToStatistics(user, scoreSheetService3.scoresheet);
+//        assertEquals(200, statisticsService.averageTotalScore(user), 0.1);
+//    }
 
     // TODO add test methods here.
     // The methods must be annotated with annotation @Test. For example:

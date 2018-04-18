@@ -34,13 +34,13 @@ public class StatisticsService {
     }
     
     public Statistics getAllStatistics() throws SQLException {
-        
-        return statisticsDao.getAverageStatistics();
+        int id = -1;
+        return statisticsDao.getStatistics(0);
     }
     
     public Statistics getUserStatistics(User user) throws SQLException, Exception {
         int id = userService.findUserId(user.getUsername());
-        return statisticsDao.getAverageStatistics(id);
+        return statisticsDao.getStatistics(id);
     }
     
     

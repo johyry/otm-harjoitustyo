@@ -48,58 +48,20 @@ public class FileStatisticsDao implements StatisticsDao {
 
     }
 
-    @Override
-    public Statistics getAverageStatistics() throws SQLException {
+        @Override
+    public Statistics getStatistics(int userId) throws SQLException {
         Statistics statistics = new Statistics();
         int index = 0;
 
         Connection connection = database.getConnection();
-        PreparedStatement stmt = connection.prepareStatement("SELECT * FROM statistics");
-        ResultSet rs = stmt.executeQuery();
-
-        while (rs.next()) {
-            statistics.setTotalOnes(rs.getInt("ones") + statistics.getTotalOnes());
-            statistics.setTotalTwos(rs.getInt("twos") + statistics.getTotalTwos());
-            statistics.setTotalThrees(rs.getInt("threes") + statistics.getTotalThrees());
-            statistics.setTotalFours(rs.getInt("fours") + statistics.getTotalFours());
-            statistics.setTotalFives(rs.getInt("fives") + statistics.getTotalFives());
-            statistics.setTotalSixes(rs.getInt("sixes") + statistics.getTotalSixes());
-            statistics.setTotalUpperSection(rs.getInt("uppersectiontotal") + statistics.getTotalUpperSection());
-            statistics.setTotalBonus(rs.getInt("bonus") + statistics.getTotalBonus());
-            statistics.setTotalOnePair(rs.getInt("onepair") + statistics.getTotalOnePair());
-            statistics.setTotalTwoPair(rs.getInt("twopair") + statistics.getTotalTwoPair());
-            statistics.setTotalThreeOfAKind(rs.getInt("threeofakind") + statistics.getTotalThreeOfAKind());
-            statistics.setTotalFourOfAKind(rs.getInt("fourofakind") + statistics.getTotalFourOfAKind());
-            statistics.setTotalSmallStraight(rs.getInt("smallstraigh") + statistics.getTotalSmallStraight());
-            statistics.setTotalBigStraight(rs.getInt("bigstraight") + statistics.getTotalBigStraight());
-            statistics.setTotalFullHouse(rs.getInt("fullhouse") + statistics.getTotalFullHouse());
-            statistics.setTotalChance(rs.getInt("chance") + statistics.getTotalChance());
-            statistics.setTotalYatzy(rs.getInt("yatzy") + statistics.getTotalYatzy());
-            statistics.setTotalLowerSection(rs.getInt("lowersectiontotal") + statistics.getTotalLowerSection());
-            statistics.setTotalTotal(rs.getInt("total") + statistics.getTotalTotal());
-            statistics.setTotalGames(statistics.getTotalGames() + 1);
-
-        }
-
-        rs.close();
-        stmt.close();
-        connection.close();
-
-        return statistics;
-    }
-
-    @Override
-    public Statistics getAverageStatistics(int userId) throws SQLException {
-        Statistics statistics = new Statistics();
-        int index = 0;
-
-        Connection connection = database.getConnection();
+        
+        PreparedStatement stmt;
 
         if (userId != -1) {
-            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM statistics where user_id = ?");
+            stmt = connection.prepareStatement("SELECT * FROM statistics where user_id = ?");
             stmt.setObject(1, userId);
         } else {
-            PreparedStatement stmt = connection.prepareStatement("SELECT * FROM statistics");
+            stmt = connection.prepareStatement("SELECT * FROM statistics");
 
         }
         ResultSet rs = stmt.executeQuery();

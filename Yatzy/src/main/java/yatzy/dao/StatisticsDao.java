@@ -11,9 +11,8 @@ public interface StatisticsDao {
     
     void insertStatistics(int userId, Scoresheet scoresheet) throws SQLException;
     
-    Statistics getAverageStatistics(int userId) throws SQLException;
+    Statistics getStatistics(int userId) throws SQLException;
     
-    Statistics getAverageStatistics() throws SQLException;
     
 //    double getAverageTotalScore(int userId) throws SQLException;
     
