@@ -36,13 +36,18 @@
     <td>1</td>
     <td>Harjoitustyön tekoa: testejä</td>
   </tr>
-	<tr>
-		<td>16.4.</td>
+<tr>
+    <td>16.4.</td>
     <td>4</td>
     <td>Harjoitustyön tekoa: pelitoiminnallisuuden kehittäminen</td>
 	</tr>
 	<tr>
 		<td>17.4.</td>
+    <td>4</td>
+    <td>Harjoitustyön tekoa: tilastotoiminnallisuuden kehittämistä</td>
+	</tr>
+	<tr>
+		<td>18.4.</td>
     <td>4</td>
     <td>Harjoitustyön tekoa: tilastotoiminnallisuuden kehittämistä</td>
 	</tr>
