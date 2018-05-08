@@ -28,6 +28,22 @@ Interface has been aimed to be completely separated from software logic. It is o
 
 ## Software logic
 
+The main class in the software logic is [YatzyService](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/YatzyService.java). Other main classes are:
+
+- [UserService](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/UserService.java)
+- [ScoresheetService](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/ScoreSheetService.java)
+- [StatisticsService](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/StatisticsService.java)
+- [User](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/User.java)
+- [Scoresheet](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/Scoresheet.java)
+- [Statistics](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/Statistics.java)
+
+Everything in the software happens through [YatzyService](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/YatzyService.java). For example when:
+
+- creating an user YatzyService calls UserService which handles creating user with [UserDao](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/dao/UserDao.java).
+
+- saving or viewing statistics YatzyService calls StatisticsService to handle it with [StatisticsDao](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/dao/StatisticsDao.java)
+
+- saving ingame scores YatzyService calls ScoresheetService which handles it with Scoresheet class. ScoresheetService also takes care of all the scorevalidations when inserting scores ingame.
 
 
 ![alt text](https://raw.githubusercontent.com/johyry/otm-harjoitustyo/master/Documentation/pictures/class_packageDiagram.png)
@@ -40,7 +56,7 @@ Classes are built following the [Data Acces Object](https://en.wikipedia.org/wik
 
 ### Files
 
-Software saves users and statistics into a separate file. File name is determined in [yatzy.domain.YatzyService's constructor](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/YatzyService.java) and it is called usersAndStatistics.db.
+Software saves users and statistics into a separate file. File name is determined in [yatzy.domain.YatzyService's constructor](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/YatzyService.java#L21) and it is called usersAndStatistics.db.
 
 Software uses sqlite for database handling.
 
