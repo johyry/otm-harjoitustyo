@@ -30,12 +30,12 @@ Interface has been aimed to be completely separated from software logic. It is o
 
 The main class in the software logic is [YatzyService](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/YatzyService.java). Other main classes are:
 
-- [UserService](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/UserService.java)
-- [ScoresheetService](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/ScoreSheetService.java)
-- [StatisticsService](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/StatisticsService.java)
-- [User](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/User.java)
-- [Scoresheet](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/Scoresheet.java)
-- [Statistics](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/Statistics.java)
+- [UserService](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/UserService.java) handles creating user and logging in through databases
+- [ScoresheetService](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/ScoreSheetService.java) handles validating scores and saving ingame scores into scoresheet.
+- [StatisticsService](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/StatisticsService.java) handles viewing and adding statistics into database.
+- [User](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/User.java) is just an user class with name and username.
+- [Scoresheet](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/Scoresheet.java) has all the scoresheet rows as variables.
+- [Statistics](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/Statistics.java) is a class to help out printing and calculating statistics when viewing them.
 
 Everything in the software happens through [YatzyService](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/YatzyService.java). For example when:
 

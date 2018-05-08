@@ -36,21 +36,31 @@
     <td>1</td>
     <td>Harjoitustyön tekoa: testejä</td>
   </tr>
-<tr>
+  <tr>
     <td>16.4.</td>
     <td>4</td>
     <td>Harjoitustyön tekoa: pelitoiminnallisuuden kehittäminen</td>
-	</tr>
-	<tr>
-		<td>17.4.</td>
+  </tr>
+  <tr>
+    <td>17.4.</td>
     <td>4</td>
     <td>Harjoitustyön tekoa: tilastotoiminnallisuuden kehittämistä</td>
-	</tr>
-	<tr>
-		<td>18.4.</td>
+  </tr>
+  <tr>
+    <td>18.4.</td>
     <td>4</td>
     <td>Harjoitustyön tekoa: tilastotoiminnallisuuden kehittämistä</td>
-	</tr>
+  </tr>
+  <tr>
+    <td>7.5.</td>
+    <td>4</td>
+    <td>Harjoitustyön tekoa: graafisen käyttöliittymän kehittämistä</td>
+  </tr>
+  <tr>
+    <td>8.5.</td>
+    <td>4</td>
+    <td>Harjoitustyön tekoa: dokumenttien kirjoittamista</td>
+  </tr>
 </table>
 
 </body>
