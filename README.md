@@ -19,11 +19,15 @@
 
 Perform tests:
 
-*mvn test*
+```
+mvn test
+```
 
 Test results:
 
-*mvn jacoco:report*
+```
+mvn jacoco:report
+```
 
 You can have look at the report at target/site/jacoco/index.html
 
@@ -31,7 +35,9 @@ You can have look at the report at target/site/jacoco/index.html
 
 Command:
 
-*mvn package*
+```
+mvn package
+```
 
 Will generate a runnable jar-file into the directory target
 
@@ -40,7 +46,9 @@ Will generate a runnable jar-file into the directory target
 
 Command 
 
-*mvn jxr:jxr checkstyle:checkstyle*
+```
+mvn jxr:jxr checkstyle:checkstyle
+```
 
 will run the checkups determined by [checkstyle.xml](Yatzy/checkstyle.xml)
 
