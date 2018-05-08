@@ -28,11 +28,36 @@ Interface has been aimed to be completely separated from software logic. It is o
 
 ## Software logic
 
+
+
 ![alt text](https://raw.githubusercontent.com/johyry/otm-harjoitustyo/master/Documentation/pictures/class_packageDiagram.png)
 
 ## How software saves the information
 
+Classes [yatzy.dao.FileUserDao](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/dao/FileUserDao.java) and [yatzy.dao.FileStatisticsDao](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/dao/FileStatisticsDao.java) take care of saving the information into databases. 
+
+Classes are built following the [Data Acces Object](https://en.wikipedia.org/wiki/Data_access_object)-model. Classes have been isolated behind the interfaces yatzy.dao.UserDao and yatzy.dao.StatisticsDao, so the software logic is not using the classes directly.
+
 ### Files
+
+Software saves users and statistics into a separate file. File name is determined in [yatzy.domain.YatzyService's constructor](https://github.com/johyry/otm-harjoitustyo/blob/master/Yatzy/src/main/java/yatzy/domain/YatzyService.java) and it is called usersAndStatistics.db.
+
+Software uses sqlite for database handling.
+
+
+
+## Main functionalities
+
+### Creating a new user
+
+### Logging in
+
+### One turn in game
+
+### Viewing statistics
+
+
+
 
 ## Weaknesses left on the software
 
@@ -40,6 +65,4 @@ Interface has been aimed to be completely separated from software logic. It is o
 
 
 
-### Class diagram
 
-![alt text](https://raw.githubusercontent.com/johyry/otm-harjoitustyo/master/Documentation/pictures/yatzyClassDiagram.png)
