@@ -48,7 +48,7 @@ public class FileStatisticsDao implements StatisticsDao {
 
     }
 
-        @Override
+    @Override
     public Statistics getStatistics(int userId) throws SQLException {
         Statistics statistics = new Statistics();
         int index = 0;
@@ -99,27 +99,5 @@ public class FileStatisticsDao implements StatisticsDao {
         return statistics;
     }
 
-//    @Override
-//    public double getAverageTotalScore(int userId) throws SQLException {
-//        Connection connection = database.getConnection();
-//        PreparedStatement stmt = connection.prepareStatement("SELECT total FROM statistics WHERE user_id = ?");
-//        stmt.setObject(1, userId);
-//
-//        ResultSet rs = stmt.executeQuery();
-//
-//        double sum = 0;
-//        int index = 0;
-//        double average = 0;
-//
-//        while (rs.next()) {
-//            sum += rs.getInt("total");
-//            index++;
-//            System.out.println(rs.getInt("total"));
-//        }
-//
-//        average = sum / index;
-//
-//        return average;
-//
-//    }
+
 }

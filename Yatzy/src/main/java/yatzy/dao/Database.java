@@ -28,13 +28,13 @@ public class Database {
 
             // suoritetaan komennot
             for (String table : tables) {
-                System.out.println("Running command >> " + table);
+//                System.out.println("Running command >> " + table);
                 st.executeUpdate(table);
             }
 
         } catch (Throwable t) {
             // jos tietokantataulu on jo olemassa, ei komentoja suoriteta
-            System.out.println("Error >> " + t.getMessage());
+//            System.out.println("Error >> " + t.getMessage());
         }
     }
 
@@ -68,7 +68,6 @@ public class Database {
 
         // test data
         list.add("INSERT Into user (username, name) VALUES ('xdjonttu', 'johannes')");
-//        list.add("INSERT Into statistics (user_id, ones, twos, threes, fours, fives, sixes) VALUES (1, 5, 10, 15, 20, 25, 30)");
 
         return list;
     }
@@ -79,16 +78,12 @@ public class Database {
 
             // suoritetaan komennot
             String command = "DELETE FROM statistics";
-            System.out.println("Running command >> " + command);
             st.executeUpdate(command);
             
             command = "DELETE FROM user";
-            System.out.println("Running command >> " + command);
             st.executeUpdate(command);
 
         } catch (Throwable t) {
-            // jos tietokantataulu on jo olemassa, ei komentoja suoriteta
-            System.out.println("Error >> " + t.getMessage());
         }
 
     }
