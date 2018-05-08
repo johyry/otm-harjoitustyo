@@ -13,6 +13,7 @@ There is only a normal user. Later there might be a superuser who has the rights
 The software opens into a main menu. From main menu you can:
 <ol type="1">
 	<li>Play Yatzy (requirement: 1 logged in user)</li>
+		- Will take you to the game with all logged in users.
 	<li>Log In</li>
 	<li>Log out</li>
 	<li>Create new user</li>
