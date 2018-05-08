@@ -15,24 +15,24 @@ The software opens into a main menu. From main menu you can:
 	<li>Play Yatzy (requirement: 1 logged in user)</li>
 		- Will take you to the game with all logged in users.
 	<li>Log In</li>
+		- You will be asked your username
 	<li>Log out</li>
+		- You will be asked your username
 	<li>Create new user</li>
+		- You will be asked your name and username
 	<li>List all existing users</li>
+		- Will list all existing users
 	<li>View statistics (yet to be implemented)</li>
+		- A scene to view statistics on
 	<li>Exit the game</li>
+		- Exit the game
 </ol> 
 
 
-1. Will take you to the game with all logged in users.
-2. You will be asked your username
-3. You will be asked your username
-4. You will be asked your name and username
-5. Will list all existing users
-6. A scene to view statistics on
-7. Exit the game
+
 
 
 <h2> Possible future implementations </h2>
 
-AI
+AI</br>
 Superuser
