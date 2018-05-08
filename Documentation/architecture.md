@@ -4,7 +4,7 @@
 
 The structure of the program follows three-layer layerarchitecture, and the packagestructure is following:
 
-![alt text](https://raw.githubusercontent.com/johyry/otm-harjoitustyo/dev/Documentation/pictures/PackageDiagram.png)
+![alt text](https://raw.githubusercontent.com/johyry/otm-harjoitustyo/master/Documentation/pictures/packageDiagram.png)
 
 
 ## Interface
@@ -23,4 +23,4 @@ The structure of the program follows three-layer layerarchitecture, and the pack
 
 ### Class diagram
 
-![alt text](https://raw.githubusercontent.com/johyry/otm-harjoitustyo/dev/Documentation/pictures/yatzyClassDiagram.png)
+![alt text](https://raw.githubusercontent.com/johyry/otm-harjoitustyo/master/Documentation/pictures/yatzyClassDiagram.png)
