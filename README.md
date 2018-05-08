@@ -1,5 +1,6 @@
 # Yatzy
 
+This is a software created for playing Yatzy. Yatzy is a turn-based dice game which can be played alone or with friends. The objective of the game is to score points by rolling five dice to make certain combinations. More info on [Wikipedia](https://en.wikipedia.org/wiki/Yahtzee)
 
 <h2> Documentation </h2>
 
@@ -11,7 +12,8 @@
 
 <h2> Releases </h2>
 
-[Release 1, week 5](https://github.com/johyry/otm-harjoitustyo/releases/tag/week5)
+[Release 1, week 5](https://github.com/johyry/otm-harjoitustyo/releases/tag/week5)</br>
+[Release 2, week 6](https://github.com/johyry/otm-harjoitustyo/releases/tag/week6)
 
 <h2> Command line features </h2>
 
