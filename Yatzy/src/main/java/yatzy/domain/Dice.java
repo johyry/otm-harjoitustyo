@@ -3,6 +3,11 @@ package yatzy.domain;
 
 import java.util.Random;
 
+     /**
+     * Class represents a single dice.
+     * 
+     *  
+     */
 
 public class Dice {
     private int value;
@@ -22,6 +27,11 @@ public class Dice {
     public void setValue(int value) {
         this.value = value;
     }
+    
+    /**
+     * Method for throwing dice.
+     *  @return random number between 1 and 6.
+     */
 
     public int throwDice() {
         Random rand = new Random();

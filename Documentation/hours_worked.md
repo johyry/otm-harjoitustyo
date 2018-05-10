@@ -61,6 +61,11 @@
     <td>4</td>
     <td>Harjoitustyön tekoa: dokumenttien kirjoittamista</td>
   </tr>
+  <tr>
+    <td>9.5.</td>
+    <td>2</td>
+    <td>Harjoitustyön tekoa: käyttöohjeiden kirjoittamista</td>
+  </tr>
 </table>
 
 </body>

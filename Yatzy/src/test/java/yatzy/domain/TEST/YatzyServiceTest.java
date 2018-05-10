@@ -80,7 +80,7 @@ public class YatzyServiceTest {
 
     @Test
     public void printGeneralStatistics() throws SQLException {
-        yatzyService.printGeneralStatistics();
+        yatzyService.printAllStatistics();
     }
     
     @Test

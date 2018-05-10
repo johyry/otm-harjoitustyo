@@ -16,6 +16,10 @@ public class YatzyService {
 
     private UserService userService;
     private StatisticsService statisticsService;
+    
+    /**
+     * This class is the main class of the software.
+     */
 
     public YatzyService() throws Exception {
         Database database = new Database("jdbc:sqlite:usersAndStatistics.db");
@@ -28,7 +32,14 @@ public class YatzyService {
         scoreSheetServices = new ArrayList<>();
     }
 
-    // USERSERVICE SERVICES
+    /**
+     * Method logs in an user to the software. It also creates a scoresheetservice for user.
+     * It return a list of all users logged in.
+     *
+     * @param   username   User gives username
+     * 
+     * @return list of users logged in
+     */
     public List<User> login(String username) throws Exception {
 
         User user = userService.logIn(username);
@@ -43,6 +54,15 @@ public class YatzyService {
         return usersLoggedIn;
     }
 
+    /**
+     * Method for creating user
+     *
+     * @param   username   
+     * @param   name       
+     * 
+     * @return true if succesfull
+     */
+    
     public boolean createUser(String username, String name) throws Exception {
         if (userService.createUser(username, name)) {
             return true;
@@ -51,18 +71,35 @@ public class YatzyService {
         }
 
     }
+    
+     /**
+     * Method for printing all existing users in database
+     *  
+     */
 
     public void printAllExistingUsers() throws Exception {
 
         userService.printAllExistingUsers();
     }
 
-    // AFTER LOGGED IN SERVICES
+    /**
+     * Method for printing single users score sheet
+     * 
+     * @param user user object
+     *  
+     */
+    
     public void printScoresheet(User user) {
         ScoreSheetService scoresheetService = findScoreSheetService(user);
 
         scoresheetService.printScoreSheet();
     }
+    
+    /**
+     * Method for first throw of the turn
+     *  
+     *  @return List<Dice> list of dices
+     */
 
     public List<Dice> firstThrow() {
         List<Dice> dices = new ArrayList<>();
@@ -72,6 +109,15 @@ public class YatzyService {
         }
         return dices;
     }
+    
+    /**
+     * Method for throwing dices with a possibility to give input to hold certain dices
+     * 
+     * @param dices
+     * @param input defines dices to be held
+     *  
+     * @return List<Dice> list of dices
+     */
 
     public List<Dice> throwDices(List<Dice> dices, String input) {
         String[] hold = input.split(" ");
@@ -111,6 +157,17 @@ public class YatzyService {
         return dices;
     }
 
+    /**
+     * Method for inserting score to players scoresheet
+     * 
+     * @param user
+     * @param dices
+     * @param input number of the row of the scoresheet
+     * 
+     * @return true if succesfull
+     *  
+     */
+    
     public boolean insertScore(User user, List<Dice> dices, String input) {
         ScoreSheetService scoresheetService = findScoreSheetService(user);
         if (scoresheetService.insertScore(dices, input)) {
@@ -120,6 +177,15 @@ public class YatzyService {
         }
 
     }
+    
+    /**
+     * Method for finding users scoresheetservice
+     * 
+     * @param user
+     * 
+     * @return scoresheetservice
+     *  
+     */
 
     private ScoreSheetService findScoreSheetService(User user) {
         for (ScoreSheetService service : scoreSheetServices) {
@@ -129,10 +195,17 @@ public class YatzyService {
         }
         return null;
     }
-
+    
+    
     public List<User> getUsersLoggedIn() {
         return usersLoggedIn;
     }
+    
+    /**
+     * Method for calculating the winner of the game
+     *  
+     * @return String returns user and the score
+     */
 
     public String getWinner() {
         int bestScore = 0;
@@ -149,7 +222,7 @@ public class YatzyService {
 
     }
 
-    public void printGeneralStatistics() throws SQLException {
+    public void printAllStatistics() throws SQLException {
         statisticsService.printAllStatistics();
 
     }

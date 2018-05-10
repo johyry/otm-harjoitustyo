@@ -5,14 +5,10 @@ import yatzy.dao.Database;
 import yatzy.dao.FileStatisticsDao;
 import yatzy.dao.StatisticsDao;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 /**
  *
- * @author johyry
+ * This class is responsible of statistics database handling
  */
 public class StatisticsService {
 
@@ -25,6 +21,10 @@ public class StatisticsService {
     }
 
     
+    /**
+     * Method for inserting scoresheet into statistics
+     *  
+     */
 
     public void insertScoresheetToStatistics(User user, Scoresheet scoresheet) throws Exception {
         int id = userService.findUserId(user.getUsername());
@@ -32,6 +32,11 @@ public class StatisticsService {
         statisticsDao.insertStatistics(id, scoresheet);
 
     }
+    
+    /**
+     * Method for printing all statistics in database
+     *  
+     */
     
     public void printAllStatistics() throws SQLException {
         int id = -1;
@@ -41,6 +46,13 @@ public class StatisticsService {
         statistics.printTotals();
         
     }
+    
+    /**
+     * Method for printing single users statistics from db
+     * 
+     * @param userid
+     *  
+     */
     
     public void printUserStatistics(int userId) throws SQLException, Exception {
         Statistics statistics = statisticsDao.getStatistics(userId);

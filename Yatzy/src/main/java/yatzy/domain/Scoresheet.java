@@ -1,8 +1,8 @@
 package yatzy.domain;
 
 /**
- *
- * @author johyry
+ *  This class represents a single scoresheet. It consists only of setters and getters.
+ * 
  */
 public class Scoresheet {
 

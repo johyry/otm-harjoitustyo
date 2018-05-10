@@ -5,6 +5,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+     /**
+     * This class is responsible of validating scores received from user and saving them to database.
+     * Every single user has their own scoresheetservice.
+     *  
+     */
+
 public class ScoreSheetService {
 
     private User user;
@@ -19,6 +25,11 @@ public class ScoreSheetService {
     public User getUser() {
         return user;
     }
+    
+    /**
+     * This method sorts dices into hashmap, so it is easier to validate them.
+     *  
+     */
 
     private Map<Integer, Integer> sortDice(List<Dice> dices) {
         Map<Integer, Integer> sorted = new HashMap<>();
@@ -47,42 +58,98 @@ public class ScoreSheetService {
 
         return sorted;
     }
+    
+    /**
+     * Method for setting score into scoresheet. 
+     * It first sorts the dice, secondly validates, and thirdly sets score.
+     * 
+     * @param list of dice
+     *  
+     */
 
     public void setOnes(List<Dice> dices) {
         Map<Integer, Integer> sorted = sortDice(dices);
 
         scoresheet.setOnes(sorted.get(1));
     }
+    
+    /**
+     * Method for setting score into scoresheet. 
+     * It first sorts the dice, secondly validates, and thirdly sets score.
+     * 
+     * @param list of dice
+     *  
+     */
 
     public void setTwos(List<Dice> dices) {
         Map<Integer, Integer> sorted = sortDice(dices);
 
         scoresheet.setTwos(sorted.get(2) * 2);
     }
+    
+    /**
+     * Method for setting score into scoresheet. 
+     * It first sorts the dice, secondly validates, and thirdly sets score.
+     * 
+     * @param list of dice
+     *  
+     */
 
     public void setThrees(List<Dice> dices) {
         Map<Integer, Integer> sorted = sortDice(dices);
 
         scoresheet.setThrees(sorted.get(3) * 3);
     }
+    
+    /**
+     * Method for setting score into scoresheet. 
+     * It first sorts the dice, secondly validates, and thirdly sets score.
+     * 
+     * @param list of dice
+     *  
+     */
 
     public void setFours(List<Dice> dices) {
         Map<Integer, Integer> sorted = sortDice(dices);
 
         scoresheet.setFours(sorted.get(4) * 4);
     }
+    
+    /**
+     * Method for setting score into scoresheet. 
+     * It first sorts the dice, secondly validates, and thirdly sets score.
+     * 
+     * @param list of dice
+     *  
+     */
 
     public void setFives(List<Dice> dices) {
         Map<Integer, Integer> sorted = sortDice(dices);
 
         scoresheet.setFives(sorted.get(5) * 5);
     }
+    
+    /**
+     * Method for setting score into scoresheet. 
+     * It first sorts the dice, secondly validates, and thirdly sets score.
+     * 
+     * @param list of dice
+     *  
+     */
 
     public void setSixes(List<Dice> dices) {
         Map<Integer, Integer> sorted = sortDice(dices);
 
         scoresheet.setSixes(sorted.get(6) * 6);
     }
+    
+    /**
+     * Method for setting score into scoresheet. 
+     * It first sorts the dice, secondly validates, and thirdly sets score.
+     * 
+     * @param list of dice
+     *  
+     */
 
     public void setOnePair(List<Dice> dices) {
         Map<Integer, Integer> sorted = sortDice(dices);
@@ -99,8 +166,16 @@ public class ScoreSheetService {
             scoresheet.setOnePair(0);
         }
     }
+    
+    /**
+     * Method for setting score into scoresheet. 
+     * It first sorts the dice, secondly validates, and thirdly sets score.
+     * 
+     * @param list of dice
+     *  
+     */
 
-    public void setTwoPair(List<Dice> dices) { //testaa
+    public void setTwoPair(List<Dice> dices) { 
         Map<Integer, Integer> sorted = sortDice(dices);
         boolean pointsOrNot = false;
 
@@ -119,6 +194,14 @@ public class ScoreSheetService {
             scoresheet.setTwoPair(0);
         }
     }
+    
+    /**
+     * Method for setting score into scoresheet. 
+     * It first sorts the dice, secondly validates, and thirdly sets score.
+     * 
+     * @param list of dice
+     *  
+     */
 
     public void setThreeOfAKind(List<Dice> dices) {
         Map<Integer, Integer> sorted = sortDice(dices);
@@ -136,6 +219,14 @@ public class ScoreSheetService {
             scoresheet.setThreeOfAKind(0);
         }
     }
+    
+    /**
+     * Method for setting score into scoresheet. 
+     * It first sorts the dice, secondly validates, and thirdly sets score.
+     * 
+     * @param list of dice
+     *  
+     */
 
     public void setFourOfAKind(List<Dice> dices) {
         Map<Integer, Integer> sorted = sortDice(dices);
@@ -156,6 +247,14 @@ public class ScoreSheetService {
         }
 
     }
+    
+    /**
+     * Method for setting score into scoresheet. 
+     * It first sorts the dice, secondly validates, and thirdly sets score.
+     * 
+     * @param list of dice
+     *  
+     */
 
     public void setSmallStraight(List<Dice> dices) {
         Map<Integer, Integer> sorted = sortDice(dices);
@@ -169,6 +268,14 @@ public class ScoreSheetService {
             scoresheet.setSmallStraight(0);
         }
     }
+    
+    /**
+     * Method for setting score into scoresheet. 
+     * It first sorts the dice, secondly validates, and thirdly sets score.
+     * 
+     * @param list of dice
+     *  
+     */
 
     public void setBigStraight(List<Dice> dices) {
         Map<Integer, Integer> sorted = sortDice(dices);
@@ -182,6 +289,14 @@ public class ScoreSheetService {
 
         }
     }
+    
+    /**
+     * Method for setting score into scoresheet. 
+     * It first sorts the dice, secondly validates, and thirdly sets score.
+     * 
+     * @param list of dice
+     *  
+     */
 
     public void setFullHouse(List<Dice> dices) {
         Map<Integer, Integer> sorted = sortDice(dices);
@@ -204,10 +319,26 @@ public class ScoreSheetService {
         }
 
     }
+    
+    /**
+     * Method for setting score into scoresheet. 
+     * It first sorts the dice, secondly validates, and thirdly sets score.
+     * 
+     * @param list of dice
+     *  
+     */
 
     public void setChance(List<Dice> dices) {
         scoresheet.setChance(dices.get(0).getValue() + dices.get(1).getValue() + dices.get(2).getValue() + dices.get(3).getValue() + dices.get(4).getValue());
     }
+    
+    /**
+     * Method for setting score into scoresheet. 
+     * It first sorts the dice, secondly validates, and thirdly sets score.
+     * 
+     * @param list of dice
+     *  
+     */
 
     public void setYatzy(List<Dice> dices) {
         Map<Integer, Integer> sorted = sortDice(dices);
@@ -225,6 +356,12 @@ public class ScoreSheetService {
         }
 
     }
+    
+    /**
+     * Method for printing scoresheet. 
+     * 
+     *  
+     */
 
     public void printScoreSheet() {
         scoresheet.calculateTotals();
@@ -254,6 +391,16 @@ public class ScoreSheetService {
 
 
     }
+    
+    /**
+     * Method for inserting score to a certain row determined by input.
+     * It first checks whether that row has been set already.
+     * 
+     * @param dices
+     * @param input a number of the row
+     * 
+     *  
+     */
 
     public boolean insertScore(List<Dice> dices, String input) {
         switch (input) {
@@ -355,8 +502,15 @@ public class ScoreSheetService {
     public void setUser(User user) {
         this.user = user;
     }
+    
+    /**
+     * Method for assisting printing scoresheet.
+     * method returns a "-" if a row is set and 0, else it returns actual score.
+     * 
+     *  
+     */
 
-    public String getOnes() {
+    private String getOnes() {
         int x = scoresheet.getOnes();
         if (x == 0 && scoresheet.isOnesSet()) {
             return "-";
@@ -364,8 +518,15 @@ public class ScoreSheetService {
 
         return Integer.toString(x);
     }
+    
+    /**
+     * Method for assisting printing scoresheet.
+     * method returns a "-" if a row is set and 0, else it returns actual score.
+     * 
+     *  
+     */
 
-    public String getTwos() {
+    private String getTwos() {
         int x = scoresheet.getTwos();
         if (x == 0 && scoresheet.isTwosSet()) {
             return "-";
@@ -373,8 +534,15 @@ public class ScoreSheetService {
 
         return Integer.toString(x);
     }
+    
+    /**
+     * Method for assisting printing scoresheet.
+     * method returns a "-" if a row is set and 0, else it returns actual score.
+     * 
+     *  
+     */
 
-    public String getThrees() {
+    private String getThrees() {
         int x = scoresheet.getThrees();
         if (x == 0 && scoresheet.isThreesSet()) {
             return "-";
@@ -382,8 +550,15 @@ public class ScoreSheetService {
 
         return Integer.toString(x);
     }
+    
+    /**
+     * Method for assisting printing scoresheet.
+     * method returns a "-" if a row is set and 0, else it returns actual score.
+     * 
+     *  
+     */
 
-    public String getFours() {
+    private String getFours() {
         int x = scoresheet.getFours();
         if (x == 0 && scoresheet.isFoursSet()) {
             return "-";
@@ -391,8 +566,15 @@ public class ScoreSheetService {
 
         return Integer.toString(x);
     }
+    
+    /**
+     * Method for assisting printing scoresheet.
+     * method returns a "-" if a row is set and 0, else it returns actual score.
+     * 
+     *  
+     */
 
-    public String getFives() {
+    private String getFives() {
         int x = scoresheet.getFives();
         if (x == 0 && scoresheet.isFivesSet()) {
             return "-";
@@ -400,8 +582,15 @@ public class ScoreSheetService {
 
         return Integer.toString(x);
     }
+    
+    /**
+     * Method for assisting printing scoresheet.
+     * method returns a "-" if a row is set and 0, else it returns actual score.
+     * 
+     *  
+     */
 
-    public String getSixes() {
+    private String getSixes() {
         int x = scoresheet.getSixes();
         if (x == 0 && scoresheet.isSixesSet()) {
             return "-";
@@ -409,8 +598,15 @@ public class ScoreSheetService {
 
         return Integer.toString(x);
     }
+    
+    /**
+     * Method for assisting printing scoresheet.
+     * method returns a "-" if a row is set and 0, else it returns actual score.
+     * 
+     *  
+     */
 
-    public String getOnePair() {
+    private String getOnePair() {
         int x = scoresheet.getOnePair();
         if (x == 0 && scoresheet.isOnePairSet()) {
             return "-";
@@ -418,8 +614,15 @@ public class ScoreSheetService {
 
         return Integer.toString(x);
     }
+    
+    /**
+     * Method for assisting printing scoresheet.
+     * method returns a "-" if a row is set and 0, else it returns actual score.
+     * 
+     *  
+     */
 
-    public String getTwoPair() {
+    private String getTwoPair() {
         int x = scoresheet.getTwoPair();
         if (x == 0 && scoresheet.isTwoPairSet()) {
             return "-";
@@ -427,8 +630,15 @@ public class ScoreSheetService {
 
         return Integer.toString(x);
     }
+    
+    /**
+     * Method for assisting printing scoresheet.
+     * method returns a "-" if a row is set and 0, else it returns actual score.
+     * 
+     *  
+     */
 
-    public String getThreeOfAKind() {
+    private String getThreeOfAKind() {
         int x = scoresheet.getThreeOfAKind();
         if (x == 0 && scoresheet.isThreeOfAKindSet()) {
             return "-";
@@ -436,8 +646,15 @@ public class ScoreSheetService {
 
         return Integer.toString(x);
     }
+    
+    /**
+     * Method for assisting printing scoresheet.
+     * method returns a "-" if a row is set and 0, else it returns actual score.
+     * 
+     *  
+     */
 
-    public String getFourOfAKind() {
+    private String getFourOfAKind() {
         int x = scoresheet.getFourOfAKind();
         if (x == 0 && scoresheet.isFourOfAKindSet()) {
             return "-";
@@ -445,8 +662,15 @@ public class ScoreSheetService {
 
         return Integer.toString(x);
     }
+    
+    /**
+     * Method for assisting printing scoresheet.
+     * method returns a "-" if a row is set and 0, else it returns actual score.
+     * 
+     *  
+     */
 
-    public String getSmallStraigt() {
+    private String getSmallStraigt() {
         int x = scoresheet.getSmallStraight();
         if (x == 0 && scoresheet.isSmallStraightSet()) {
             return "-";
@@ -454,8 +678,15 @@ public class ScoreSheetService {
 
         return Integer.toString(x);
     }
+    
+    /**
+     * Method for assisting printing scoresheet.
+     * method returns a "-" if a row is set and 0, else it returns actual score.
+     * 
+     *  
+     */
 
-    public String getBigStraight() {
+    private String getBigStraight() {
         int x = scoresheet.getBigStraight();
         if (x == 0 && scoresheet.isBigStraightSet()) {
             return "-";
@@ -463,8 +694,15 @@ public class ScoreSheetService {
 
         return Integer.toString(x);
     }
+    
+    /**
+     * Method for assisting printing scoresheet.
+     * method returns a "-" if a row is set and 0, else it returns actual score.
+     * 
+     *  
+     */
 
-    public String getFullHouse() {
+    private String getFullHouse() {
         int x = scoresheet.getFullHouse();
         if (x == 0 && scoresheet.isFullHouseSet()) {
             return "-";
@@ -472,8 +710,15 @@ public class ScoreSheetService {
 
         return Integer.toString(x);
     }
+    
+    /**
+     * Method for assisting printing scoresheet.
+     * method returns a "-" if a row is set and 0, else it returns actual score.
+     * 
+     *  
+     */
 
-    public String getChance() {
+    private String getChance() {
         int x = scoresheet.getChance();
         if (x == 0 && scoresheet.isChanceSet()) {
             return "-";
@@ -481,8 +726,15 @@ public class ScoreSheetService {
 
         return Integer.toString(x);
     }
+    
+    /**
+     * Method for assisting printing scoresheet.
+     * method returns a "-" if a row is set and 0, else it returns actual score.
+     * 
+     *  
+     */
 
-    public String getYatzy() {
+    private String getYatzy() {
         int x = scoresheet.getYatzy();
         if (x == 0 && scoresheet.isYatzySet()) {
             return "-";

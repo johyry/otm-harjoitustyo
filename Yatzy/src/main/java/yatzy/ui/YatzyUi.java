@@ -209,7 +209,7 @@ public class YatzyUi {
             String input = scanner.nextLine();
 
             if (input.equals("1")) {
-                yatzyService.printGeneralStatistics();
+                yatzyService.printAllStatistics();
             } else if (input.equals("2")) {
                 System.out.println();
                 printAllExistingUsers();

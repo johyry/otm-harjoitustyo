@@ -1,5 +1,11 @@
 package yatzy.domain;
 
+
+    /**
+     * This class is responsible of calculating average statistics of single db row and printing of statistics
+     *  
+     */
+
 public class Statistics {
 
     private double totalOnes;
@@ -281,7 +287,10 @@ public class Statistics {
     }
 
     
-
+    /**
+     * Method for calculating average scores out of total scores and total games
+     *  
+     */
 
     public void calculateAveragesFromTotals() {
         averageOnes = totalOnes / totalGames;
@@ -305,6 +314,11 @@ public class Statistics {
         averageTotal = totalTotal / totalGames;
 
     }
+    
+    /**
+     * Method for printing average scores
+     *  
+     */
 
     public void printAverages() {
         System.out.println("Following statistics are average per game on " + getTotalGames() + " games: \n\n"
@@ -329,6 +343,11 @@ public class Statistics {
                 + "19: Total: " + getAverageTotal());
         System.out.println();
     }
+    
+    /**
+     * Method for printing total scores
+     *  
+     */
     
     public void printTotals() {
         System.out.println("Following statistics are total scores on all " + getTotalGames() + " games: \n\n"

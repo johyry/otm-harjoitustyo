@@ -5,6 +5,11 @@ public class User {
 
     private String name;
     private String username;
+    
+    /**
+     * This class represents a single user of software
+     *  
+     */
 
     public User(String username, String name) {
         this.name = name;

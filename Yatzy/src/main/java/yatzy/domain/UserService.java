@@ -5,6 +5,10 @@ import yatzy.dao.Database;
 import yatzy.dao.FileUserDao;
 import yatzy.dao.UserDao;
 
+     /**
+     * This class is responsible of user database handling
+     */
+
 public class UserService {
 
     private UserDao userDao;
@@ -13,6 +17,14 @@ public class UserService {
         
         userDao = new FileUserDao(database);
     }
+    
+    /**
+     * logs in a user
+     * 
+     * @param username
+     * 
+     * @return user if found in db
+     */
 
     public User logIn(String username) throws Exception {
 
@@ -25,6 +37,16 @@ public class UserService {
         return user;
 
     }
+    
+    /**
+     * creates a new user
+     * 
+     * @param username
+     * @param name
+     * 
+     * @return true if username is not in use and creation is successful
+     *  
+     */
 
     public boolean createUser(String username, String name) throws Exception {
         
@@ -42,6 +64,10 @@ public class UserService {
 
     }
     
+    /**
+     * Method for printing all existing users in database
+     *  
+     */
 
     public void printAllExistingUsers() throws Exception {
 
@@ -52,6 +78,15 @@ public class UserService {
         }
 
     }
+    
+    /**
+     * Method for finding users userID
+     * 
+     * @param username
+     * 
+     * @return userid
+     *  
+     */
     
     public int findUserId(String username) throws Exception {
         
