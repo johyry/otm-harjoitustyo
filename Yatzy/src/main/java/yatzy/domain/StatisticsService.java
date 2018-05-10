@@ -53,12 +53,6 @@ public class StatisticsService {
     }
     
     
-//
-//    public double averageTotalScore(User user) throws Exception {
-//        int id = userService.findUserId(user.getUsername());
-//        double result = statisticsDao.getAverageTotalScore(id);
-//        
-//        return result;
-//    }
+
 
 }

@@ -185,6 +185,7 @@ public class YatzyUi {
 
             for (int i = 0; i < usersLoggedIn.size(); i++) {
                 yatzyService.printScoresheet(usersLoggedIn.get(i));
+                System.out.println();
 
             }
             System.out.println();

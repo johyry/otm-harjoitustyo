@@ -4,6 +4,8 @@ This is a software created for playing Yatzy. Yatzy is a turn-based dice game wh
 
 <h2> Documentation </h2>
 
+[Instructions](Documentation/instructions.md)
+
 [Requirement declaration](Documentation/requirementdeclaration.md)
 
 [Hours worked](Documentation/hours_worked.md)
