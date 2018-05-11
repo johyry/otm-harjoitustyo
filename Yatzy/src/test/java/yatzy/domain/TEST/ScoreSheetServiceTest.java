@@ -49,11 +49,6 @@ public class ScoreSheetServiceTest {
     @After
     public void tearDown() {
     }
-    
-    @Test
-    public void printScoreSheet() {
-        scoresheetservice.printScoreSheet();
-    }
 
     @Test
     public void setOnes() {
@@ -76,11 +71,27 @@ public class ScoreSheetServiceTest {
         nopat.add(new Dice(4));
         nopat.add(new Dice(6));
 
+       
         scoresheetservice.setOnes(nopat);
         assertEquals(true, scoresheetservice.scoresheet.isOnesSet());
 
     }
+    
+    @Test
+    public void setOnesFalse() {
+        nopat.add(new Dice(1));
+        nopat.add(new Dice(1));
+        nopat.add(new Dice(1));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(6));
 
+       
+        scoresheetservice.setOnes(nopat);
+        assertEquals(false, scoresheetservice.insertScore(nopat, "1"));
+
+    }
+    
+    
     @Test
     public void setTwos() {
         nopat.add(new Dice(2));
@@ -106,6 +117,19 @@ public class ScoreSheetServiceTest {
         assertEquals(true, scoresheetservice.scoresheet.isTwosSet());
 
     }
+    
+    @Test
+    public void setTwosFalse() {
+        nopat.add(new Dice(2));
+        nopat.add(new Dice(2));
+        nopat.add(new Dice(1));
+        nopat.add(new Dice(3));
+        nopat.add(new Dice(5));
+
+        scoresheetservice.setTwos(nopat);
+        assertEquals(false, scoresheetservice.insertScore(nopat, "2"));
+
+    }
 
     @Test
     public void setThrees() {
@@ -128,8 +152,23 @@ public class ScoreSheetServiceTest {
         nopat.add(new Dice(3));
         nopat.add(new Dice(5));
 
+        
         scoresheetservice.setThrees(nopat);
         assertEquals(true, scoresheetservice.scoresheet.isThreesSet());
+
+    }
+    
+    @Test
+    public void setThreesFalse() {
+        nopat.add(new Dice(2));
+        nopat.add(new Dice(2));
+        nopat.add(new Dice(1));
+        nopat.add(new Dice(3));
+        nopat.add(new Dice(5));
+
+        
+        scoresheetservice.setThrees(nopat);
+        assertEquals(false, scoresheetservice.insertScore(nopat, "3"));
 
     }
 
@@ -158,6 +197,19 @@ public class ScoreSheetServiceTest {
         assertEquals(true, scoresheetservice.scoresheet.isFoursSet());
 
     }
+    
+    @Test
+    public void setFoursFalse() {
+        nopat.add(new Dice(2));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(3));
+        nopat.add(new Dice(5));
+
+        scoresheetservice.setFours(nopat);
+        assertEquals(false, scoresheetservice.insertScore(nopat, "4"));
+
+    }
 
     @Test
     public void setFives() {
@@ -184,6 +236,19 @@ public class ScoreSheetServiceTest {
         assertEquals(true, scoresheetservice.scoresheet.isFivesSet());
 
     }
+    
+    @Test
+    public void setFivesFalse() {
+        nopat.add(new Dice(2));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(3));
+        nopat.add(new Dice(5));
+
+        scoresheetservice.setFives(nopat);
+        assertEquals(false, scoresheetservice.insertScore(nopat, "5"));
+
+    }
 
     @Test
     public void setSixes() {
@@ -208,6 +273,19 @@ public class ScoreSheetServiceTest {
 
         scoresheetservice.setSixes(nopat);
         assertEquals(true, scoresheetservice.scoresheet.isSixesSet());
+
+    }
+    
+    @Test
+    public void setSixesFalse() {
+        nopat.add(new Dice(2));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(3));
+        nopat.add(new Dice(5));
+
+        scoresheetservice.setSixes(nopat);
+        assertEquals(false, scoresheetservice.insertScore(nopat, "6"));
 
     }
 
@@ -250,6 +328,19 @@ public class ScoreSheetServiceTest {
         assertEquals(true, scoresheetservice.scoresheet.isOnePairSet());
 
     }
+    
+    @Test
+    public void setOnePairFalse() {
+        nopat.add(new Dice(2));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(3));
+        nopat.add(new Dice(5));
+
+        scoresheetservice.setOnePair(nopat);
+        assertEquals(false, scoresheetservice.insertScore(nopat, "9"));
+
+    }
 
     @Test
     public void setTwoPair() {
@@ -274,6 +365,19 @@ public class ScoreSheetServiceTest {
 
         scoresheetservice.setTwoPair(nopat);
         assertEquals(true, scoresheetservice.scoresheet.isTwoPairSet());
+
+    }
+    
+    @Test
+    public void setTwoPairFalse() {
+        nopat.add(new Dice(2));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(3));
+        nopat.add(new Dice(5));
+
+        scoresheetservice.setTwoPair(nopat);
+        assertEquals(false, scoresheetservice.insertScore(nopat, "10"));
 
     }
 
@@ -302,6 +406,19 @@ public class ScoreSheetServiceTest {
         assertEquals(true, scoresheetservice.scoresheet.isThreeOfAKindSet());
 
     }
+    
+    @Test
+    public void setThreeOfAKindFalse() {
+        nopat.add(new Dice(2));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(3));
+        nopat.add(new Dice(5));
+
+        scoresheetservice.setThreeOfAKind(nopat);
+        assertEquals(false, scoresheetservice.insertScore(nopat, "11"));
+
+    }
 
     @Test
     public void setFourOfAKind() {
@@ -328,6 +445,19 @@ public class ScoreSheetServiceTest {
         assertEquals(true, scoresheetservice.scoresheet.isFourOfAKindSet());
 
     }
+    
+    @Test
+    public void setFourOfAKindFalse() {
+        nopat.add(new Dice(2));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(3));
+        nopat.add(new Dice(5));
+
+        scoresheetservice.setFourOfAKind(nopat);
+        assertEquals(false, scoresheetservice.insertScore(nopat, "12"));
+
+    }
 
     @Test
     public void setSmallStraight() {
@@ -352,6 +482,19 @@ public class ScoreSheetServiceTest {
 
         scoresheetservice.setSmallStraight(nopat);
         assertEquals(true, scoresheetservice.scoresheet.isSmallStraightSet());
+
+    }
+    
+    @Test
+    public void setSmallStraightFalse() {
+        nopat.add(new Dice(2));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(3));
+        nopat.add(new Dice(5));
+
+        scoresheetservice.setSmallStraight(nopat);
+        assertEquals(false, scoresheetservice.insertScore(nopat, "13"));
 
     }
 
@@ -382,6 +525,19 @@ public class ScoreSheetServiceTest {
     }
     
     @Test
+    public void setBigStraightFalse() {
+        nopat.add(new Dice(2));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(3));
+        nopat.add(new Dice(5));
+
+        scoresheetservice.setBigStraight(nopat);
+        assertEquals(false, scoresheetservice.insertScore(nopat, "14"));
+
+    }
+
+    @Test
     public void setFullHouse() {
         nopat.add(new Dice(6));
         nopat.add(new Dice(4));
@@ -408,6 +564,19 @@ public class ScoreSheetServiceTest {
     }
     
     @Test
+    public void setFullHouseFalse() {
+        nopat.add(new Dice(2));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(3));
+        nopat.add(new Dice(5));
+
+        scoresheetservice.setFullHouse(nopat);
+        assertEquals(false, scoresheetservice.insertScore(nopat, "15"));
+
+    }
+
+    @Test
     public void setChance() {
         nopat.add(new Dice(6));
         nopat.add(new Dice(4));
@@ -428,11 +597,25 @@ public class ScoreSheetServiceTest {
         nopat.add(new Dice(4));
         nopat.add(new Dice(6));
 
+        assertEquals(false, scoresheetservice.scoresheet.isChanceSet());
         scoresheetservice.setChance(nopat);
         assertEquals(true, scoresheetservice.scoresheet.isChanceSet());
 
     }
     
+    @Test
+    public void setChanceFalse() {
+        nopat.add(new Dice(2));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(3));
+        nopat.add(new Dice(5));
+
+        scoresheetservice.setChance(nopat);
+        assertEquals(false, scoresheetservice.insertScore(nopat, "16"));
+
+    }
+
     @Test
     public void setYatzy() {
         nopat.add(new Dice(6));
@@ -456,6 +639,19 @@ public class ScoreSheetServiceTest {
 
         scoresheetservice.setYatzy(nopat);
         assertEquals(true, scoresheetservice.scoresheet.isYatzySet());
+
+    }
+    
+    @Test
+    public void setYatzyFalse() {
+        nopat.add(new Dice(2));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(4));
+        nopat.add(new Dice(3));
+        nopat.add(new Dice(5));
+
+        scoresheetservice.setYatzy(nopat);
+        assertEquals(false, scoresheetservice.insertScore(nopat, "17"));
 
     }
 

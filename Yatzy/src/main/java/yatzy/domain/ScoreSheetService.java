@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
      /**
-     * This class is responsible of validating scores received from user and saving them to database.
-     * Every single user has their own scoresheetservice.
+     * This class is responsible of validating scores received from user and saving them to scoresheet.
+     * Every single user has their own score sheet service.
      *  
      */
 

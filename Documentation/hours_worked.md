@@ -66,6 +66,16 @@
     <td>2</td>
     <td>Harjoitustyön tekoa: käyttöohjeiden kirjoittamista</td>
   </tr>
+  <tr>
+    <td>9.5.</td>
+    <td>2</td>
+    <td>Harjoitustyön tekoa: javadocin kirjottamista</td>
+  </tr>
+  <tr>
+    <td>11.5.</td>
+    <td>4</td>
+    <td>Harjoitustyön tekoa: dokumenttien ja testien kirjoittamista</td>
+  </tr>
 </table>
 
 </body>

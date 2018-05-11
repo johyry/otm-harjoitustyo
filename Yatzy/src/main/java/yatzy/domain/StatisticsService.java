@@ -8,7 +8,7 @@ import yatzy.dao.StatisticsDao;
 
 /**
  *
- * This class is responsible of statistics database handling
+ * This class is responsible of handling statistics with DAO class.
  */
 public class StatisticsService {
 

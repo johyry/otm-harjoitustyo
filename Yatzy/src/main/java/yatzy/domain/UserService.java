@@ -6,7 +6,7 @@ import yatzy.dao.FileUserDao;
 import yatzy.dao.UserDao;
 
      /**
-     * This class is responsible of user database handling
+     * This class is responsible of handling users information with DAO class.
      */
 
 public class UserService {

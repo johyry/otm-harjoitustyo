@@ -9,6 +9,10 @@ import java.util.List;
 import yatzy.domain.Scoresheet;
 import yatzy.domain.Statistics;
 
+/**
+ * This class is responsible of handling statistics with database.
+ */
+
 public class FileStatisticsDao implements StatisticsDao {
 
     private Database database;
@@ -16,6 +20,15 @@ public class FileStatisticsDao implements StatisticsDao {
     public FileStatisticsDao(Database database) {
         this.database = database;
     }
+    
+    /**
+     * Inserts one scoresheet into statistics
+     * 
+     * @param userId as INT
+     * @param scoresheet object
+     * 
+     * 
+     */
 
     @Override
     public void insertStatistics(int userId, Scoresheet scoresheet) throws SQLException {
@@ -47,6 +60,14 @@ public class FileStatisticsDao implements StatisticsDao {
         connection.close();
 
     }
+    
+    /**
+     * Finds users statistics from db
+     * 
+     * @param userId as int
+     * 
+     * @return Statistics object
+     */
 
     @Override
     public Statistics getStatistics(int userId) throws SQLException {

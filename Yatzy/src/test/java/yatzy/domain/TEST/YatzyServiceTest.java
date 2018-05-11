@@ -28,25 +28,18 @@ import yatzy.domain.YatzyService;
  */
 public class YatzyServiceTest {
 
-    private List<User> usersLoggedIn;
-    private List<ScoreSheetService> scoreSheetServices;
-
-    private UserService userService;
-    private StatisticsService statisticsService;
+    private Database database;
+   
 
     private YatzyService yatzyService;
+    
 
     public YatzyServiceTest() throws Exception {
-        Database database = new Database("jdbc:sqlite:test1.db");
+        database = new Database("jdbc:sqlite:test.db");
         database.init();
 
-        userService = new UserService(database);
-        statisticsService = new StatisticsService(database, userService);
-
-        usersLoggedIn = new ArrayList<>();
-        scoreSheetServices = new ArrayList<>();
-
         yatzyService = new YatzyService();
+        
     }
 
     @BeforeClass
@@ -59,36 +52,18 @@ public class YatzyServiceTest {
 
     @Before
     public void setUp() throws Exception {
+        
         yatzyService.createUser("testi", "testaaja");
         yatzyService.login("testi");
 
     }
 
     @After
-    public void tearDown() {
+    public void tearDown() throws SQLException {
+        database.deleteAllData();
     }
 
-    @Test
-    public void createUser() throws Exception {
-        yatzyService.createUser("testi", "testaaja");
-    }
-
-    @Test
-    public void logIn() {
-
-    }
-
-    @Test
-    public void printGeneralStatistics() throws SQLException {
-        yatzyService.printAllStatistics();
-    }
-    
-    @Test
-    public void printUserStatistics() throws SQLException, Exception {
         
-        yatzyService.printUserStatistics("testi");
-    }
-
     @Test
     public void throwDices() {
         List<Dice> dices = new ArrayList<>();
@@ -109,5 +84,40 @@ public class YatzyServiceTest {
         assertEquals(1, dices.get(3).getValue());
         assertEquals(1, dices.get(4).getValue());
     }
-
+    
+    @Test
+    public void insertScoreTrueTest() {
+        User user = yatzyService.getUsersLoggedIn().get(0);
+        
+        List<Dice> dices = new ArrayList<>();
+        dices.add(new Dice(1));
+        dices.add(new Dice(1));
+        dices.add(new Dice(1));
+        dices.add(new Dice(1));
+        dices.add(new Dice(1));
+        
+        assertEquals(true, yatzyService.insertScore(user, dices, "1"));
+        
+    }
+    
+    @Test
+    public void insertScoreFalseTest() {
+        User user = yatzyService.getUsersLoggedIn().get(0);
+        
+        List<Dice> dices = new ArrayList<>();
+        dices.add(new Dice(1));
+        dices.add(new Dice(1));
+        dices.add(new Dice(1));
+        dices.add(new Dice(1));
+        dices.add(new Dice(1));
+        
+        yatzyService.insertScore(user, dices, "1");
+        assertEquals(false, yatzyService.insertScore(user, dices, "1"));
+        
+    }
+    
+     
+    
+    
+    
 }

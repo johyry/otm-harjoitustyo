@@ -12,6 +12,8 @@ This is a software created for playing Yatzy. Yatzy is a turn-based dice game wh
 
 [Architecture](Documentation/architecture.md)
 
+[Test Document](Documentation/testdocument.md)
+
 <h2> Releases </h2>
 
 [Release 1, week 5](https://github.com/johyry/otm-harjoitustyo/releases/tag/week5)</br>

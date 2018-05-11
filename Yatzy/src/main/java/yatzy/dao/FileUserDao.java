@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 import yatzy.domain.User;
 
+/**
+ * This class is responsible of handling User information with database.
+ */
+
 public class FileUserDao implements UserDao {
 
     private Database database;
@@ -16,6 +20,14 @@ public class FileUserDao implements UserDao {
         this.database = database;
 
     }
+    
+    /**
+     * Creates one user row in database.
+     * 
+     * @param user object
+     * 
+     * @return user object
+     */
 
     @Override
     public User create(User user) throws SQLException {
@@ -29,6 +41,14 @@ public class FileUserDao implements UserDao {
         connection.close();
         return user;
     }
+    
+    /**
+     * Finds user from database by given username
+     * 
+     * @param username
+     * 
+     * @return user object
+     */
 
     @Override
     public User findByUsername(String username) throws SQLException {
@@ -49,6 +69,13 @@ public class FileUserDao implements UserDao {
         connection.close();
         return user;
     }
+    
+    /**
+     * Gets all users from database
+     * 
+     * 
+     * @return list of users
+     */
 
     @Override
     public List<User> getAll() throws SQLException {
@@ -70,6 +97,14 @@ public class FileUserDao implements UserDao {
         
         return users;
     }
+    
+    /**
+     * Finds users id by username
+     * 
+     * @param username
+     * 
+     * @return userId as INT
+     */
 
     @Override
     public int getId(String username) throws SQLException {

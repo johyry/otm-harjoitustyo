@@ -108,9 +108,5 @@ public class StatisticsServiceTest {
         assertEquals(200, statistics.getAverageTotal(), 0.1);
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    
 }

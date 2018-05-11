@@ -215,9 +215,9 @@ public class YatzyUi {
                 printAllExistingUsers();
                 System.out.println();
                 System.out.println("Enter the username of the user of whose statistics you would like to view.");
-                input = scanner.nextLine();
+                String username = scanner.nextLine();
 
-                if (yatzyService.printUserStatistics(input)) {
+                if (yatzyService.printUserStatistics(username)) {
 
                 } else {
                     System.out.println("User not found.");

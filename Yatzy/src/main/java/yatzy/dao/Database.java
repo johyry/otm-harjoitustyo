@@ -7,6 +7,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class initializes the database, creates tables and gets connection into db. 
+ */
+
 public class Database {
 
     private String databaseAddress;
@@ -18,33 +22,43 @@ public class Database {
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(databaseAddress);
     }
+    
+    /**
+     * Initializes db by creating tables if nonexistent.
+     * 
+     * 
+     */
 
     public void init() {
         List<String> tables = createTables();
 
-        // "try with resources" sulkee resurssin automaattisesti lopuksi
+        
         try (Connection conn = getConnection()) {
             Statement st = conn.createStatement();
 
-            // suoritetaan komennot
+            
             for (String table : tables) {
-//                System.out.println("Running command >> " + table);
+
                 st.executeUpdate(table);
             }
 
         } catch (Throwable t) {
-            // jos tietokantataulu on jo olemassa, ei komentoja suoriteta
-//            System.out.println("Error >> " + t.getMessage());
+ 
         }
     }
+    
+    /**
+     * Createtables for initializing.
+     * 
+     */
 
     private List<String> createTables() {
         ArrayList<String> list = new ArrayList<>();
 
         // create tables
-        list.add("CREATE TABLE user (id integer PRIMARY KEY, username varchar(30), name varchar(30));");
+        list.add("CREATE TABLE IF NOT EXISTS user (id integer PRIMARY KEY, username varchar(30), name varchar(30));");
 
-        list.add("CREATE TABLE statistics (user_id integer,"
+        list.add("CREATE TABLE IF NOT EXISTS statistics (user_id integer,"
                 + " ones integer,"
                 + " twos integer,"
                 + " threes integer,"
@@ -66,11 +80,14 @@ public class Database {
                 + " total integer,"
                 + " FOREIGN KEY (user_id) REFERENCES user(id));");
 
-        // test data
-        list.add("INSERT Into user (username, name) VALUES ('xdjonttu', 'johannes')");
+        
 
         return list;
     }
+    
+    /**
+     * Deletes all data from db, for testing purposes only.
+     */
 
     public void deleteAllData() throws SQLException {
         try (Connection conn = getConnection()) {

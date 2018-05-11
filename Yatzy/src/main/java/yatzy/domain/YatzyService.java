@@ -221,14 +221,28 @@ public class YatzyService {
         return user + " with score of: " + bestScore;
 
     }
+    
+    /**
+     * Method for printing all statistics.
+     *  
+     * 
+     */
 
     public void printAllStatistics() throws SQLException {
         statisticsService.printAllStatistics();
 
     }
+    
+    /**
+     * Method for printing Users statistics.
+     *  
+     * @param username
+     * 
+     * @return true if user was found and printing successful.
+     */
 
-    public boolean printUserStatistics(String input) throws Exception {
-        int id = userService.findUserId(input);
+    public boolean printUserStatistics(String username) throws Exception {
+        int id = userService.findUserId(username);
         if (id == -1) {
             return false;
         } else {
@@ -236,6 +250,12 @@ public class YatzyService {
             return true;
         }
     }
+    
+    /**
+     * Method for saving all statistics of game.
+     *  
+     * 
+     */
 
     public void saveStatistics() throws Exception {
         
