@@ -1,6 +1,8 @@
 # Yatzy
 
-This is a software created for playing Yatzy. Yatzy is a turn-based dice game which can be played alone or with friends. The objective of the game is to score points by rolling five dice to make certain combinations. More info on [Wikipedia](https://en.wikipedia.org/wiki/Yahtzee)
+This is a software created for playing Yatzy. It has been programmed with java. Text-based user interface only.
+
+Yatzy is a turn-based dice game which can be played alone or with friends. The objective of the game is to score points by rolling five dice to make certain combinations. More info on [Wikipedia](https://en.wikipedia.org/wiki/Yahtzee)
 
 <h2> Documentation </h2>
 
