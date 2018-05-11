@@ -66,16 +66,26 @@ Software uses sqlite for database handling.
 
 ### Creating a new user
 
+![alt text](https://raw.githubusercontent.com/johyry/otm-harjoitustyo/master/Documentation/pictures/YatzyCreateUser.png)
+
 ### Logging in
+
+![alt text](https://raw.githubusercontent.com/johyry/otm-harjoitustyo/master/Documentation/pictures/YatzyLogIn.png)
 
 ### One turn in game
 
+![alt text](https://raw.githubusercontent.com/johyry/otm-harjoitustyo/master/Documentation/pictures/YatzyOneTurn.png)
+
 ### Viewing statistics
+
+![alt text](https://raw.githubusercontent.com/johyry/otm-harjoitustyo/master/Documentation/pictures/YatzyViewingUsersStatistics.png)
 
 
 
 
 ## Weaknesses left on the software
+
+Scoresheet and statistics classes could have been implemented with HashMap objects resulting in easier use. Also software contains some longer methods that don't pass the checkstyle tests.
 
 
 
